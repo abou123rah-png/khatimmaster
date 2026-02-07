@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khatim Mou'ashir 10x10 — Carré de la Lune pour Émotions, Intuition & Réceptivité — KhatimMaster</title>
+    <meta name="description" content="Générez un Khatim Mou'ashir (carré 10x10) associé à la planète Lune. Utilisé pour amplifier l'intuition, la réceptivité, les émotions, la fécondité, et les rêves. Entrez votre PM et la progression pour créer votre carré ésotérique.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding-top: 60px; /* Espace pour l'en-tête */
+            padding-bottom: 40px; /* Espace pour le pied de page */
+        }
+        
+        .arabic-text {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.2rem;
+            text-align: center;
+            direction: rtl;
+        }
+        
+        .mystic-container {
+            background: rgba(21, 138, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mystic-table-cell {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            min-width: 60px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mystic-table-cell:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .btn-mystic {
+            background: linear-gradient(45deg, #ff7b00 0%, #ffaa00 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+        }
+        
+        .btn-mystic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+        }
+        
+        .btn-home {
+            background: linear-gradient(45deg, #158aff 0%, #00b4ff 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(21, 138, 255, 0.3);
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(21, 138, 255, 0.4);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 123, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 123, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 123, 0, 0); }
+        }
+        
+        .input-mystic {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 180, 255, 0.3);
+        }
+        
+        .input-mystic:focus {
+            outline: none;
+            border-color: #158aff;
+            box-shadow: 0 0 0 3px rgba(21, 138, 255, 0.3);
+        }
+        
+        .moon-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .moon-hover:hover {
+            color: #ffd700;
+            transform: scale(1.2) rotate(15deg);
+        }
+        
+        .star-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .star-hover:hover {
+            color: #ffd700;
+            transform: scale(1.2) rotate(15deg);
+        }
+        
+        .table-grid {
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            gap: 0.5rem;
+        }
+        
+        /* En-tête simple */
+        .simple-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 12px 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .simple-header .logo img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Pied de page simple */
+        .simple-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 10px 20px;
+            z-index: 1000;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <!-- En-tête simple (une seule ligne) -->
+  <header class="simple-header">
+    <a href="{{ url_for('accueil') }}" class="logo">
+      <img src="{{ url_for('static', filename='images/icone.png') }}" alt="KhatimMaster">
+      KhatimMaster
+    </a>
+    <span class="text-white text-sm">MOU'ASHIR 10x10 - Tableau Mystique</span>
+  </header>
+
+    <div class="mystic-container w-full max-w-6xl overflow-hidden relative p-6">
+        <!-- Floating decorative elements -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
+        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-white bg-opacity-5 rounded-full"></div>
+        <div class="absolute top-4 left-4 text-white text-2xl">
+            <i class="fas fa-moon floating moon-hover" title="Lune Mystique"></i>
+        </div>
+        <div class="absolute top-4 right-4 text-white text-2xl">
+            <i class="fas fa-star floating star-hover" style="animation-delay: 0.5s;" title="Étoile Magique"></i>
+        </div>
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">MOU'ASHIR 10x10</h1>
+            <p class="text-blue-200 opacity-90">Générateur de Tableau Mystique 10x10</p>
+        </div>
+        
+        <!-- Main content -->
+        <div class="mb-8">
+            <!-- Input fields -->
+            <div class="mb-6">
+                <label for="pm" class="block text-lg font-medium text-white mb-2">
+                    <i class="fas fa-calculator mr-2"></i>Entrez la valeur de votre PM :
+                </label>
+                <input 
+                    type="number" 
+                    id="pm" 
+                    class="w-full input-mystic rounded-xl p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg"
+                    placeholder="Ex: 5000"
+                >
+            </div>
+            
+            <div class="mb-8">
+                <label for="progression" class="block text-lg font-medium text-white mb-2">
+                    <i class="fas fa-chart-line mr-2"></i>Entrez la valeur de la progression :
+                </label>
+                <input 
+                    type="number" 
+                    id="progression" 
+                    class="w-full input-mystic rounded-xl p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg"
+                    placeholder="Ex: 5"
+                >
+            </div>
+            
+            <!-- Buttons -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
+                <button 
+                    onclick="generateTable()" 
+                    class="btn-mystic text-white font-semibold py-3 px-6 rounded-xl text-lg flex items-center justify-center gap-3 pulse"
+                >
+                    <i class="fas fa-magic"></i>
+                    Générer le tableau
+                </button>
+                
+                <button 
+                    id="home-btn" 
+                    class="btn-home text-white font-semibold py-3 px-6 rounded-xl text-lg flex items-center justify-center gap-3"
+                >
+                    <i class="fas fa-home"></i>
+                    Retour à l'accueil
+                </button>
+            </div>
+            
+            <!-- Error message -->
+            <div id="error" class="text-red-400 text-center mb-6 hidden"></div>
+            
+            <!-- Result table -->
+            <div id="table-container" class="hidden">
+                <h2 class="text-xl font-bold text-white mb-4 text-center">Tableau Mystique 10x10</h2>
+                <div id="mystic-table" class="table-grid mb-8">
+                    <!-- Table cells will be generated here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-white text-sm">
+            <p>Système basé sur la numérologie arabe traditionnelle</p>
+            <div class="flex justify-center gap-4 mt-3 text-white text-opacity-70">
+                <i class="fas fa-hamsa"></i>
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-hand-sparkles"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page simple (une seule ligne) -->
+    <footer class="simple-footer">
+        &copy; KhatimMaster - Par M. Cissé. Tous droits réservés. | <a href="mailto:cissdoro@gmail.com">cissdoro@gmail.com</a>
+    </footer>
+
+    <script>
+        const arabicNumbers = {0:'٠',1:'١',2:'٢',3:'٣',4:'٤',5:'٥',6:'٦',7:'٧',8:'٨',9:'٩'};
+        
+        function toArabic(n) {
+            return String(n).split('').map(d => arabicNumbers[d]||'').join('');
+        }
+        
+        function generateTable() {
+            const a = parseInt(document.getElementById('progression').value);
+            const b = parseInt(document.getElementById('pm').value);
+            const container = document.getElementById('mystic-table');
+            const error = document.getElementById('error');
+            container.innerHTML = '';
+            
+            if (isNaN(a) || isNaN(b) || b <= 495 * a) {
+                error.classList.remove('hidden');
+                error.textContent = "⚠️ La condition b > 495 × a n'est pas respectée.";
+                document.getElementById('table-container').classList.add('hidden');
+                return;
+            }
+            
+            let i=0,j=0,k=0,l=0,m=0,o=0,p=0,q=0,r=0,c=null;
+            const offsets = [0,1,2,3,4,5,6,7,8,9];
+            const flags = ['', 'r', 'q', 'p', 'o', 'm', 'l', 'k', 'j', 'i'];
+            let found = false;
+            
+            for(let idx=0; idx<offsets.length; idx++) {
+                if ((b - (495 + offsets[idx]) * a) % 10 === 0) {
+                    c = Math.floor((b - (495 + offsets[idx]) * a) / 10);
+                    if(flags[idx]) eval(flags[idx] + ' = 1');
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (!found) {
+                error.classList.remove('hidden');
+                error.textContent = "⚠️ Aucune combinaison valide trouvée pour b, a donnés.";
+                document.getElementById('table-container').classList.add('hidden');
+                return;
+            }
+            
+            const v = val => c + val * a;
+            const tableau = [
+                [v(24+j+i), v(12+i), v(81+i+j+k+l+m+o+p+q), v(93+i+j+k+l+m+o+p+q+r), v(31+i+j+k), v(74+i+i+k+l+m+o+p), v(62+i+j+k+l+m+o), v(50+i+j+k+l+m), v(68+i+j+k+l+m+o), v(0)],
+                [v(7), v(95+i+j+k+l+m+o+p+q+r), v(94+i+j+k+l+m+o+p+q+r), v(1), v(69+i+j+k+l+m+o), v(32+i+j+k), v(70+i+i+k+l+m+o+p), v(63+i+j+k+l+m+o), v(51+i+j+k+l+m), v(13+i)],
+                [v(90+i+j+k+l+m+o+p+q+r), v(8), v(2), v(14+i), v(52+i+j+k+l+m), v(40+i+j+k+l), v(58+i+j+k+l+m), v(71+i+i+k+l+m+o+p), v(64+i+j+k+l+m+o), v(96+i+j+k+l+m+o+p+q+r)],
+                [v(78+i+i+k+l+m+o+p), v(16+i), v(10+i), v(22+j+i), v(60+i+j+k+l+m+o), v(53+i+j+k+l+m), v(66+i+j+k+l+m+o), v(59+i+j+k+l+m), v(47+i+j+k+l), v(84+i+j+k+l+m+o+p+q)],
+                [v(11+i), v(79+i+i+k+l+m+o+p), v(23+j+i), v(5), v(73+i+i+k+l+m+o+p), v(61+i+j+k+l+m+o), v(54+i+j+k+l+m), v(42+i+j+k+l), v(55+i+j+k+l+m), v(92+i+j+k+l+m+o+p+q+r)],
+                [v(86+i+j+k+l+m+o+p+q), v(4), v(98+i+j+k+l+m+o+p+q+r), v(80+i+j+k+l+m+o+p+q), v(48+i+j+k+l), v(36+i+j+k), v(29+j+i), v(67+i+j+k+l+m+o), v(30+i+j+k), v(17+i)],
+                [v(15+i), v(83+i+j+k+l+m+o+p+q), v(77+i+i+k+l+m+o+p), v(89+i+j+k+l+m+o+p+q), v(27+j+i), v(65+i+j+k+l+m+o), v(33+i+j+k), v(46+i+j+k+l), v(39+i+j+k), v(21+j+i)],
+                [v(3), v(91+i+j+k+l+m+o+p+q+r), v(85+i+j+k+l+m+o+p+q), v(97+i+j+k+l+m+o+p+q+r), v(35+i+j+k), v(28+j+i), v(41+i+j+k+l), v(34+i+j+k), v(72+i+i+k+l+m+o+p), v(9)],
+                [v(82+i+j+k+l+m+o+p+q), v(20+j+i), v(19+i), v(76+i+i+k+l+m+o+p), v(44+i+j+k+l), v(57+i+j+k+l+m), v(45+i+j+k+l), v(38+i+j+k), v(26+j+i), v(88+i+j+k+l+m+o+p+q)],
+                [v(99+i+j+k+l+m+o+p+q+r), v(87+i+j+k+l+m+o+p+q), v(6), v(18+i), v(56+i+j+k+l+m), v(49+i+j+k+l), v(37+i+j+k), v(25+j+i), v(43+i+j+k+l), v(75+i+i+k+l+m+o+p)]
+            ];
+            
+            error.classList.add('hidden');
+            document.getElementById('table-container').classList.remove('hidden');
+            
+            tableau.forEach(row => {
+                row.forEach(value => {
+                    const cell = document.createElement('div');
+                    cell.className = 'mystic-table-cell rounded-lg arabic-text';
+                    cell.textContent = toArabic(value);
+                    container.appendChild(cell);
+                });
+            });
+            
+            document.getElementById('table-container').scrollIntoView({behavior: 'smooth'});
+            
+            // Add animation to cells
+            setTimeout(() => {
+                const cells = document.querySelectorAll('.mystic-table-cell');
+                cells.forEach((cell, index) => {
+                    setTimeout(() => {
+                        cell.classList.add('animate-bounce');
+                        setTimeout(() => {
+                            cell.classList.remove('animate-bounce');
+                        }, 1000);
+                    }, index * 50);
+                });
+            }, 300);
+        }
+        
+        // Home button functionality
+        document.getElementById('home-btn').addEventListener('click', () => {
+            window.location.href = "{{ url_for('accueil') }}";
+        });
+        
+        // Allow pressing Enter in input fields to generate table
+        document.getElementById('pm').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') generateTable();
+        });
+        
+        document.getElementById('progression').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') generateTable();
+        });
+    </script>
+</body>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Khatim Mou'ashir 10x10 — Carré de la Lune — KhatimMaster",
+  "description": "Générez un Khatim Mou'ashir (carré 10x10) associé à la planète Lune. Utilisé pour amplifier l'intuition, la réceptivité, les émotions, la fécondité, et les rêves. Entrez votre PM et la progression pour créer votre carré ésotérique.",
+  "url": "https://khatimmaster.onrender.com/khatim10",
+  "keywords": ["khatim", "mou'ashir", "carré 10x10", "lune", "émotions", "intuition", "réceptivité", "fécondité", "rêves", "PM", "talisman", "KhatimMaster"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "KhatimMaster",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+    }
+  }
+}
+</script>
+</html>

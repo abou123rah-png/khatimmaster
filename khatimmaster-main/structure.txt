@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Structure du Projet Flask{% endblock %}
+
+{% block content %}
+<h2>Structure du projet Flask</h2>
+<pre>
+khatimmaster/
+│
+├── app.py
+├── routes/
+│   ├── __init__.py
+│   ├── accueil.py
+│   ├── khatim1.py
+│   ├── badouhoun.py
+│   ├── hadakoun.py
+│   ├── zikr.py
+│   ├── clavier.py
+│   ├── ton_nom_en_arabe.py
+│   ├── code_mystique.py
+│   ├── nle.py
+│   ├── coran.py
+│
+├── templates/
+│   ├── base.html
+│   ├── khatim1.html
+│   ├── badouhoun.html
+│   └── ...
+│
+├── static/
+│   └── ...
+│
+├── cccss/
+│   └── style.css
+│
+└── ...
+</pre>
+{% endblock %}

@@ -1,0 +1,10 @@
+image: python:3.11
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - pip install -r requirements.txt
+    - echo "🚀 Déploiement terminé (exemple)"

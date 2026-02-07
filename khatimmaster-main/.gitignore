@@ -1,0 +1,92 @@
+# ==============================
+# Fichiers de cache et compilés Python
+# ==============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+.Python
+
+# ==============================
+# Environnements virtuels
+# ==============================
+venv/
+env/
+.venv/
+ENV/
+
+# ==============================
+# Fichiers d'environnement (SECRETS)
+# ==============================
+.env
+*.env
+.env.local
+.env.development
+.env.production
+
+# ==============================
+# Fichiers de configuration IDE
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ==============================
+# Fichiers de base de données SQLite — SAUF celui de ton app
+# ==============================
+# On ignore TOUT dans instance/ SAUF khatimmaster.db
+instance/*
+!instance/khatimmaster.db
+
+# On ignore les autres .db si tu en crées par erreur
+# mais on ne touche PAS à khatimmaster.db
+*.sqlite3
+# dreams.db  # <-- Décommente cette ligne SI tu utilises dreams.db AU LIEU de khatimmaster.db
+
+# ==============================
+# Fichiers de logs et temporaires
+# ==============================
+*.log
+logs/
+*.tmp
+tmp/
+
+# ==============================
+# Fichiers générés par les tests
+# ==============================
+.pytest_cache/
+.coverage
+htmlcov/
+.nox/
+.tox/
+
+# ==============================
+# Fichiers système ou OS
+# ==============================
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Dossiers uploadés par les utilisateurs (optionnel — à adapter)
+# ==============================
+# instance/uploads/  # <-- Décommente si tu veux IGNORER les uploads utilisateurs
+# static/uploads/
+# static/uploadPDF/
+# static/uploadVIDEO/
+
+# ==============================
+# Fichiers de déploiement (optionnel)
+# ==============================
+.dockerignore
+Dockerfile
+Procfile
+runtime.txt
+
+# ==============================
+# Articles et fichiers statiques (DOIVENT être suivis par Git)
+# ==============================
+# articles/  ← Si vous voulez aussi suivre les articles, décommentez cette ligne
+# sitemap.xml ← ❌ SUPPRIMEZ cette ligne ou mettez un # devant

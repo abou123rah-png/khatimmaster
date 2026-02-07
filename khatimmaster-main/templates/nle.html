@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur Poids Mystique - Niçab Laha Ilaha Illa Anta - KhatimMaster</title>
+    <!-- ✅ Description SEO optimisée -->
+    <meta name="description" content="Calculez la valeur mystique du poids(PM) d'un verset ou d'une phrase arabe selon la science des lettres. Outil basé sur la numérologie ésotérique islamique pour découvrir le poids spirituel des mots.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding-top: 60px; /* Espace pour l'en-tête */
+            padding-bottom: 40px; /* Espace pour le pied de page */
+        }
+        
+        .arabic-text {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.5rem;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .mystic-container {
+            background: rgba(21, 138, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-mystic {
+            background: linear-gradient(45deg, #ff7b00 0%, #ffaa00 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+        }
+        
+        .btn-mystic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+        }
+        
+        .btn-home {
+            background: linear-gradient(45deg, #158aff 0%, #00b4ff 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(21, 138, 255, 0.3);
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(21, 138, 255, 0.4);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 123, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 123, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 123, 0, 0); }
+        }
+        
+        .input-mystic {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 180, 255, 0.3);
+        }
+        
+        .input-mystic:focus {
+            outline: none;
+            border-color: #158aff;
+            box-shadow: 0 0 0 3px rgba(21, 138, 255, 0.3);
+        }
+        
+        .result-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .result-box:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        .mosque-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .mosque-icon:hover {
+            color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1) translateY(-5px);
+        }
+        
+        .moon-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .moon-icon:hover {
+            color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1) translateY(-5px);
+        }
+        
+        /* En-tête simple */
+        .simple-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 12px 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .simple-header .logo img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Pied de page simple */
+        .simple-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 10px 20px;
+            z-index: 1000;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <!-- En-tête simple (une seule ligne) -->
+  <header class="simple-header">
+    <a href="{{ url_for('accueil') }}" class="logo">
+      <img src="{{ url_for('static', filename='images/icone.png') }}" alt="KhatimMaster">
+      KhatimMaster
+    </a>
+    <span class="text-white text-sm">NLE - Calculateur Mystique</span>
+  </header>
+
+    <div class="mystic-container w-full max-w-2xl overflow-hidden relative p-6">
+        <!-- Floating decorative elements -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
+        <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-white bg-opacity-5 rounded-full"></div>
+        
+        <!-- Icons -->
+        <i class="fas fa-moon moon-icon floating" style="animation-delay: 0.5s;"></i>
+        <i class="fas fa-mosque mosque-icon floating"></i>
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">NLE</h1>
+            <p class="text-blue-200 opacity-90">Calculateur de Poids Mystique</p>
+        </div>
+        
+        <!-- Main content -->
+        <div class="mb-8">
+            <!-- Input field -->
+            <div class="mb-6">
+                <label for="arabic-phrase" class="block text-lg font-medium text-white mb-2">
+                    <i class="fas fa-language mr-2"></i>Entrez votre phrase ésotérique en arabe :
+                </label>
+                <input 
+                    type="text" 
+                    id="arabic-phrase" 
+                    class="w-full input-mystic rounded-xl p-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg"
+                    placeholder="Phrase en arabe..."
+                >
+            </div>
+            
+            <!-- Buttons -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-8">
+                <button 
+                    id="calculate-btn" 
+                    class="btn-mystic text-white font-semibold py-3 px-6 rounded-xl text-lg flex items-center justify-center gap-3 pulse"
+                >
+                    <i class="fas fa-calculator"></i>
+                    Calculer le poids
+                </button>
+                
+                <button 
+                    id="home-btn" 
+                    class="btn-home text-white font-semibold py-3 px-6 rounded-xl text-lg flex items-center justify-center gap-3"
+                >
+                    <i class="fas fa-home"></i>
+                    Retour à l'accueil
+                </button>
+            </div>
+            
+            <!-- Result display -->
+            <div id="result-container" class="hidden">
+                <div class="result-box rounded-lg p-6 mb-6 text-center">
+                    <h2 class="text-xl font-bold text-white mb-2">Résultat du calcul mystique</h2>
+                    <p id="result-text" class="text-white text-2xl font-medium"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-white text-sm">
+            <p>Système basé sur la numérologie arabe traditionnelle</p>
+            <div class="flex justify-center gap-4 mt-3 text-white text-opacity-70">
+                <i class="fas fa-hamsa"></i>
+                <i class="fas fa-eye"></i>
+                <i class="fas fa-hand-sparkles"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page simple (une seule ligne) -->
+    <footer class="simple-footer">
+        &copy; KhatimMaster - Par M. Cissé. Tous droits réservés. | <a href="mailto:cissdoro@gmail.com">cissdoro@gmail.com</a>
+    </footer>
+
+    <script>
+        // Arabic letter weights mapping
+        const arabicWeights = {
+            "ا": 1, "أ": 1, "ب": 1, "ت": 1, "ث": 1, "ج": 1, "ح": 1, "خ": 1, "د": 1, "ذ": 1, "ر": 1,
+            "ز": 1, "س": 1, "ش": 1, "ص": 1, "ض": 1, "ط": 1, "ظ": 1, "ع": 1, "غ": 1, "ف": 1,
+            "ق": 1, "ك": 1, "ل": 1, "م": 1, "ن": 1, "ه": 1, "و": 1, "ي": 1
+        };
+        
+        // Calculate mystical weight of a phrase
+        function calculateMysticalWeight(phrase) {
+            return Array.from(phrase).reduce((sum, letter) => {
+                return sum + (arabicWeights[letter] || 0);
+            }, 0);
+        }
+        
+        // Display the result with animation
+        function displayResult(weight) {
+            const resultContainer = document.getElementById('result-container');
+            const resultText = document.getElementById('result-text');
+            
+            resultText.textContent = `Le nombre de lettre(s) ésotérique(s) est : ${weight}`;
+            resultContainer.classList.remove('hidden');
+            
+            // Add animation effect
+            resultContainer.style.opacity = '0';
+            resultContainer.style.transform = 'translateY(20px)';
+            
+            let opacity = 0;
+            let yPos = 20;
+            const fadeIn = setInterval(() => {
+                opacity += 0.05;
+                yPos -= 1;
+                resultContainer.style.opacity = opacity;
+                resultContainer.style.transform = `translateY(${yPos}px)`;
+                
+                if (opacity >= 1) {
+                    clearInterval(fadeIn);
+                    resultContainer.style.opacity = '';
+                    resultContainer.style.transform = '';
+                }
+            }, 20);
+        }
+        
+        // Main function to calculate and display the weight
+        function calculateAndDisplay() {
+            const phrase = document.getElementById('arabic-phrase').value.trim();
+            
+            if (!phrase) {
+                alert("Veuillez entrer une phrase en arabe.");
+                return;
+            }
+            
+            const mysticalWeight = calculateMysticalWeight(phrase);
+            displayResult(mysticalWeight);
+        }
+        
+        // Event listeners
+        document.getElementById('calculate-btn').addEventListener('click', calculateAndDisplay);
+        
+        document.getElementById('home-btn').addEventListener('click', () => {
+            window.location.href = "{{ url_for('accueil') }}";
+        });
+        
+        // Allow pressing Enter in input field to calculate
+        document.getElementById('arabic-phrase').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') calculateAndDisplay();
+        });
+    </script>
+    <!-- JSON-LD Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Calculator",
+  "name": "Calculateur NLE - Niçab Laha Ilaha Illa Anta",
+  "description": "Calculez la valeur mystique (NLE) d'un verset ou d'une phrase arabe selon la science des lettres. Outil basé sur la numérologie ésotérique islamique pour découvrir le poids spirituel des mots.",
+  "url": "https://khatimmaster.onrender.com/nle",
+  "applicationCategory": "Spiritual Calculator",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KhatimMaster",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+    }
+  }
+}
+</script>
+</body>
+</html>

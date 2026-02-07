@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Générateur de Thalsam (Talisman) Personnalisé — KhatimMaster</title>
+  <meta name="description" content="Créez un Thalsam (talisman ésotérique) personnalisé à partir d'une valeur numérique (PM). Outil mystique basé sur la science des lettres et des nombres pour la protection, l'attirance ou la réalisation de vos intentions.">
+
+  <!-- ✅ Google Fonts : Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ✅ Fond bleu moderne dégradé */
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      font-family: 'Tajawal', sans-serif;
+      min-height: 100vh;
+      padding-top: 60px; /* Espace pour l'en-tête */
+      padding-bottom: 40px; /* Espace pour le pied de page */
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ✅ En-tête simple */
+    .simple-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a2e;
+        padding: 12px 20px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .simple-header .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .simple-header .logo img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* ✅ Pied de page simple */
+    .simple-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a2e;
+        padding: 10px 20px;
+        z-index: 1000;
+        text-align: center;
+        color: white;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .simple-footer a {
+        color: #60a5fa;
+        text-decoration: none;
+    }
+
+    /* ✅ Carte stylisée avec effet de survol */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(106, 17, 203, 0.5);
+    }
+
+    /* ✅ Titre */
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ✅ Label */
+    label {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    /* ✅ Input stylisé */
+    input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.2rem;
+      text-align: right;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #6a11cb;
+      box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+    }
+
+    /* ✅ Boutons modernes */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-generate {
+      background: linear-gradient(45deg, #ff7b00, #ffaa00);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+    }
+
+    .btn-generate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 123, 0, 0.5);
+    }
+
+    .btn-home {
+      background: linear-gradient(45deg, #158aff, #00b4ff);
+      color: white;
+      box-shadow: 0 4px 15px rgba(21, 138, 255, 0.3);
+    }
+
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(21, 138, 255, 0.5);
+    }
+
+    /* ✅ Résultat */
+    #resultat {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffaa00;
+      min-height: 2rem;
+      line-height: 1.6;
+    }
+
+    /* ✅ Icônes flottantes (optionnel) */
+    .floating-icon {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(1) {
+      top: 20px;
+      left: 20px;
+      animation-delay: 0s;
+    }
+
+    .floating-icon:nth-child(2) {
+      top: 20px;
+      right: 20px;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- En-tête simple -->
+  <header class="simple-header">
+    <a href="{{ url_for('accueil') }}" class="logo">
+      <img src="{{ url_for('static', filename='images/icone.png') }}" alt="KhatimMaster">
+      KhatimMaster
+    </a>
+    <span class="text-white text-sm">Générateur de Thalsam</span>
+  </header>
+
+  <div class="card">
+    <!-- Icônes décoratives -->
+    <i class="fas fa-magic floating-icon" style="color: #ffaa00;"></i>
+    <i class="fas fa-star floating-icon" style="color: #6a11cb;"></i>
+
+    <h1>🔮 Générateur de Thalsam</h1>
+
+    <label for="pm">Entrez une valeur PM :</label>
+    <input id="pm" type="number" placeholder="Exemple : 1234" />
+
+    <div style="margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1rem;">
+      <button onclick="genererTalsam()" class="btn btn-generate">
+        <i class="fas fa-magic"></i> Générer le Thalsam
+      </button>
+      <button onclick="window.location.href='{{ url_for('accueil') }}'" class="btn btn-home">
+        <i class="fas fa-home"></i> Retour à l'accueil
+      </button>
+    </div>
+
+    <div id="resultat"></div>
+  </div>
+
+  <!-- Pied de page simple -->
+  <footer class="simple-footer">
+    &copy; KhatimMaster - Par M. Cissé. Tous droits réservés. | <a href="mailto:cissdoro@gmail.com">cissdoro@gmail.com</a>
+  </footer>
+
+  <script>
+    const correspondances = {
+      "ا": 1, "أ": 1, "ب": 2, "ت": 400, "ث": 500, "ج": 3, "ح": 8, "خ": 600, "د": 4,
+      "ذ": 700, "ر": 200, "ز": 7, "س": 60, "ش": 300, "ص": 90, "ض": 800, "ط": 9,
+      "ظ": 900, "ع": 70, "غ": 1000, "ف": 80, "ق": 100, "ك": 20, "ل": 30, "م": 40,
+      "ن": 50, "ه": 5, "و": 6, "ي": 10
+    };
+
+    function genererCombinaisonsVariees(pm) {
+      const lettresTriees = Object.entries(correspondances).sort((a, b) => b[1] - a[1]);
+      let combinaison = [];
+      let reste = pm;
+      let derniereLettre = null;
+
+      while (reste > 0) {
+        if (reste >= 900) {
+          const choix = Math.random() < 0.5 ? "غ" : "ش";
+          combinaison.push(choix);
+          reste -= correspondances[choix];
+          derniereLettre = choix;
+        } else {
+          const candidats = lettresTriees.filter(([lettre, val]) => val <= reste && lettre !== derniereLettre);
+          if (candidats.length > 0) {
+            const [lettre, val] = candidats[Math.floor(Math.random() * candidats.length)];
+            combinaison.push(lettre);
+            reste -= val;
+            derniereLettre = lettre;
+          } else {
+            combinaison.push("غ");
+            reste -= 1000;
+          }
+        }
+      }
+      return combinaison;
+    }
+
+    function ajouterProtection(talsam) {
+      return talsam.join('') + ' النور';
+    }
+
+    function genererTalsam() {
+      const pm = parseInt(document.getElementById("pm").value);
+      if (isNaN(pm) || pm <= 0) {
+        document.getElementById("resultat").textContent = "Veuillez entrer un nombre PM valide.";
+        return;
+      }
+      const combinaisons = genererCombinaisonsVariees(pm);
+      const talsam = ajouterProtection(combinaisons);
+      document.getElementById("resultat").textContent = talsam;
+    }
+  </script>
+
+  <!-- ✅ JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Générateur de Thalsam (Talisman) Personnalisé — KhatimMaster",
+    "description": "Créez un Thalsam (talisman ésotérique) personnalisé à partir d'une valeur numérique (PM). Outil mystique basé sur la science des lettres et des nombres pour la protection, l'attirance ou la réalisation de vos intentions.",
+    "url": "https://khatimmaster.onrender.com/thalsam",
+    "keywords": ["thalsam", "talisman", "ésotérique", "mystique", "science des lettres", "protection", "attirance", "khatim", "abjad", "spiritualité"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "KhatimMaster",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+      }
+    }
+  }
+  </script>
+
+</body>
+</html>

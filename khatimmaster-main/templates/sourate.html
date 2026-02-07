@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Soutenir KhatimMaster | Dons & Contributions{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="text-center mb-5 fw-bold animate__animated animate__fadeInDown">🤲 Soutenir KhatimMaster</h1>
+
+  <div class="row g-4">
+    <!-- Colonne 1 : Dons directs -->
+    <div class="col-md-6">
+      <div class="card shadow-lg h-100 border-0 rounded-4">
+        <div class="card-header bg-gradient-primary text-white fw-bold fs-5 rounded-top-4">
+          💳 Dons directs
+        </div>
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h2 class="mb-2 fw-semibold fs-6">Orange Money / Wave</h2>
+          <div class="p-3 mb-4 border rounded bg-light text-center fs-5 fw-bold w-75">
+            +221 XX XXX XX XX
+          </div>
+
+          <h2 class="mb-2 fw-semibold fs-6">PayPal</h2>
+          <div id="paypal-button-container" class="w-75"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonne 2 : Soutenir autrement -->
+    <div class="col-md-6">
+      <div class="card shadow-lg h-100 border-0 rounded-4">
+        <div class="card-header bg-success text-white fw-bold fs-5 rounded-top-4">
+          🌟 Soutenir autrement
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between align-items-center">
+          <ul class="mb-4 list-group list-group-flush w-100">
+            <li class="list-group-item border-0 p-2">Partager mes vidéos (Rumble / Dailymotion)</li>
+            <li class="list-group-item border-0 p-2">Inviter des amis à visiter KhatimMaster</li>
+            <li class="list-group-item border-0 p-2">Acquérir les ebooks / PDF premium (bientôt)</li>
+          </ul>
+          <div class="text-center">
+            <a class="btn btn-outline-success px-4 py-2 fw-bold rounded-pill" href="mailto:cissdoro@gmail.com">
+              💌 Proposer une contribution
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=ASiWY400m0UM4y3V7hdpwu7HaQdArgjXaYOLgzolHoyAJw3YN_ZWclFqjbeHy1Xg2o4Yj0QpShLji15-&currency=EUR"></script>
+
+<script>
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color:  'gold',
+      shape:  'pill',
+      label:  'donate'
+    },
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{ amount: { value: '5.00' } }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Merci ' + details.payer.name.given_name + ' pour votre don ! 🙏');
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+{% endblock %}
+
+{% block meta %}
+<!-- SEO Meta -->
+<meta name="description" content="Aidez KhatimMaster à poursuivre ses services : dons Orange Money, Wave, PayPal et contributions diverses.">
+<link rel="canonical" href="{{ request.url }}">
+<meta property="og:title" content="Soutenir KhatimMaster | Dons & Contributions">
+<meta property="og:description" content="Aidez KhatimMaster à poursuivre ses services : dons Orange Money, Wave, PayPal et contributions diverses.">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://khatimmaster.onrender.com{{ url_for('static', filename='images/icone.png') }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soutenir KhatimMaster | Dons & Contributions">
+<meta name="twitter:description" content="Aidez KhatimMaster à poursuivre ses services : dons Orange Money, Wave, PayPal et contributions diverses.">
+<meta name="twitter:image" content="https://khatimmaster.onrender.com{{ url_for('static', filename='images/icone.png') }}">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "KhatimMaster",
+  "url": "https://khatimmaster.onrender.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://khatimmaster.onrender.com/recherche?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endblock %}
