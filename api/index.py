@@ -19,6 +19,12 @@ import logging
 # Configuration des logs
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+import sys
+import os
+
+# Ajout du dossier api au path pour les imports sur Vercel
+sys.path.append(os.path.dirname(__file__))
+
 # --- Imports depuis nos modules locaux ---
 from routes import register_blueprints
 from utils import (
