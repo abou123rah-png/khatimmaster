@@ -140,12 +140,29 @@ export default function ArticleDetailPage() {
             </div>
             
             <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-6 py-3 rounded-2xl text-white font-bold transition-all border border-white/10">
+              <button 
+                onClick={() => {
+                  const shareData = {
+                    title: article.title + " - KhatimMaster",
+                    text: "Découvrez cet article mystique sur KhatimMaster.",
+                    url: window.location.href
+                  };
+                  if (navigator.share) {
+                    navigator.share(shareData);
+                  } else {
+                    window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
+                  }
+                }}
+                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-6 py-3 rounded-2xl text-white font-bold transition-all border border-white/10"
+              >
                 <Share2 className="w-4 h-4" /> Partager
               </button>
-              <button className="flex items-center gap-2 bg-[var(--primary)] text-black px-6 py-3 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[var(--primary)]/20">
+              <Link 
+                href="/soutenir"
+                className="flex items-center gap-2 bg-[var(--primary)] text-black px-6 py-3 rounded-2xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[var(--primary)]/20"
+              >
                 <Sparkles className="w-4 h-4" /> Soutenir
-              </button>
+              </Link>
             </div>
           </div>
         </motion.article>

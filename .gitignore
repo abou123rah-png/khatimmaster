@@ -95,3 +95,5 @@ scratch/
 api/__pycache__/
 api/routes/__pycache__/
 extracted_funcs.txt
+
+.vercel

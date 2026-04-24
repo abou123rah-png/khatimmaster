@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, use, useRef } from 'react';
+import { useState, use, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Calculator, Table as TableIcon, Star, Download, Sparkles, Share2 } from 'lucide-react';
+import { ArrowLeft, Calculator, Table as TableIcon, Star, Download, Sparkles, Share2, PenTool } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -68,6 +68,12 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState('');
 
+  // Animation States
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentStep, setCurrentStep] = useState(-1);
+  const [speed, setSpeed] = useState(1000);
+  const [traceOrder, setTraceOrder] = useState<{r: number, c: number, val: number}[]>([]);
+
   if (isNaN(num) || num < 2 || num > 10) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -88,6 +94,8 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
     setLoading(true);
     setError('');
     setTableau(null);
+    setCurrentStep(-1);
+    setIsPlaying(false);
 
     try {
       const res = await fetch(`/api/khatim${num}`, {
@@ -104,12 +112,41 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
 
       setTableau(data.tableau);
       setKhatimInfo({ nom: data.nom, planete: data.planete });
+      
+      // Calculate trace order based on numeric values
+      const order: {r: number, c: number, val: number}[] = [];
+      data.tableau.forEach((row: any, r: number) => {
+        row.forEach((cell: any, c: number) => {
+          if (cell.type === "number") {
+             order.push({ r, c, val: Number(cell.value) });
+          }
+        });
+      });
+      order.sort((a, b) => a.val - b.val);
+      setTraceOrder(order);
+
     } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+
+  const startTrace = () => {
+    setCurrentStep(0);
+    setIsPlaying(true);
+  };
+
+  useEffect(() => {
+    if (isPlaying && currentStep < traceOrder.length) {
+      const timer = setTimeout(() => {
+        setCurrentStep(prev => prev + 1);
+      }, speed);
+      return () => clearTimeout(timer);
+    } else if (currentStep === traceOrder.length && traceOrder.length > 0) {
+      setIsPlaying(false);
+    }
+  }, [isPlaying, currentStep, speed, traceOrder]);
 
   const handleDownload = async () => {
     if (!khatimRef.current) return;
@@ -247,6 +284,35 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
               )}
             </AnimatePresence>
           </div>
+
+          {tableau && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 shadow-2xl space-y-6"
+            >
+              <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.2em]">Simulateur de Tracé</h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
+                  <span>Vitesse d'écriture</span>
+                  <span className="text-amber-500">{speed === 2000 ? 'Lente' : speed === 1000 ? 'Normale' : 'Rapide'}</span>
+                </div>
+                <input 
+                  type="range" min="400" max="2000" step="300"
+                  value={2400 - speed}
+                  onChange={(e) => setSpeed(2400 - parseInt(e.target.value))}
+                  className="w-full accent-amber-500"
+                />
+                <button 
+                  onClick={startTrace}
+                  disabled={isPlaying}
+                  className="w-full py-4 border border-amber-500/20 hover:bg-amber-500/10 text-amber-500 font-black rounded-xl transition-all flex items-center justify-center gap-3 disabled:opacity-30"
+                >
+                  <PenTool className="w-4 h-4" /> SIMULER LE TRACÉ
+                </button>
+              </div>
+            </motion.div>
+          )}
           
           <div className="bg-amber-500/5 border border-amber-500/10 rounded-3xl p-6 flex items-start gap-4">
             <div className="p-3 bg-amber-500/20 rounded-xl text-amber-400 shrink-0">
@@ -305,18 +371,23 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
                   {tableau.map((row, rowIndex) =>
                     row.map((cell, colIndex) => {
                       const isArabicText = cell.type === "arabic";
+                      const stepIndex = traceOrder.findIndex(o => o.r === rowIndex && o.c === colIndex);
+                      const isRevealed = currentStep === -1 || stepIndex < currentStep;
+                      const isCurrent = stepIndex === currentStep && isPlaying;
+
                       return (
                         <motion.div
                           key={`${rowIndex}-${colIndex}`}
-                          initial={{ scale: 0.8, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ delay: (rowIndex * 0.05) + (colIndex * 0.05) }}
+                          initial={false}
+                          animate={{ 
+                            scale: isCurrent ? 1.05 : 1,
+                            borderColor: isCurrent ? 'rgba(245, 158, 11, 0.5)' : (isArabicText ? 'rgba(180, 83, 9, 0.5)' : 'rgba(255,255,255,0.05)'),
+                            backgroundColor: isCurrent ? 'rgba(245, 158, 11, 0.1)' : (isArabicText ? 'rgb(245, 158, 11)' : 'rgb(17, 22, 29)')
+                          }}
                           className={`
-                            flex items-center justify-center rounded-xl md:rounded-2xl transition-all duration-300
-                            ${isArabicText
-                              ? 'bg-amber-500 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border-2 border-amber-600/50 text-black'
-                              : 'bg-[#11161d] border border-white/5 text-white hover:border-amber-500/40 hover:bg-amber-500/5'
-                            } shadow-[0_4px_10px_rgba(0,0,0,0.3)]
+                            flex items-center justify-center rounded-xl md:rounded-2xl transition-all duration-300 border
+                            ${isArabicText && isRevealed ? 'shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] text-black' : 'text-white'}
+                            shadow-[0_4px_10px_rgba(0,0,0,0.3)]
                           `}
                           style={{
                             width: num >= 7 ? '55px' : '85px',
@@ -324,17 +395,34 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
                             maxWidth: '100vw'
                           }}
                         >
-                          {isArabicText ? (
-                            <span
-                              className="text-xl md:text-3xl font-black font-reem-kufi"
-                              style={{ direction: 'rtl' }}
-                            >
-                              {String(cell.value)}
-                            </span>
-                          ) : (
-                            <span className="font-amiri font-bold text-2xl md:text-4xl text-amber-500/90 leading-none">
-                              {toArabicNumerals(Number(cell.value))}
-                            </span>
+                          <AnimatePresence>
+                            {isRevealed && (
+                              <motion.div
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="flex items-center justify-center"
+                              >
+                                {isArabicText ? (
+                                  <span
+                                    className="text-xl md:text-3xl font-black font-reem-kufi"
+                                    style={{ direction: 'rtl' }}
+                                  >
+                                    {String(cell.value)}
+                                  </span>
+                                ) : (
+                                  <span className="font-amiri font-bold text-2xl md:text-4xl text-amber-500/90 leading-none">
+                                    {toArabicNumerals(Number(cell.value))}
+                                  </span>
+                                )}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                          
+                          {/* Trace Step Indicator */}
+                          {isPlaying && stepIndex !== -1 && (
+                            <div className="absolute top-1 right-1 text-[7px] font-black opacity-30 text-amber-500">
+                              {stepIndex + 1}
+                            </div>
                           )}
                         </motion.div>
                       );

@@ -61,7 +61,22 @@ load_dotenv()
 
 app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-CORS(app)
+
+# ✅ CORS Restreint pour protéger vos algorithmes
+# En production, n'autorise que votre domaine officiel
+allowed_origins = ["https://khatimmaster.vercel.app"]
+if os.getenv('FLASK_ENV') == 'development':
+    allowed_origins.append("http://localhost:3000")
+
+CORS(app, resources={r"/api/*": {"origins": allowed_origins}})
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    return response
 app.url_map.strict_slashes = False
 
 # ✅ FONCTION DE NORMALISATION DES SLUGS
@@ -833,7 +848,7 @@ def api_ramli():
     }
 
     payload = {
-        "model": "google/gemini-2.5-flash",
+        "model": "google/gemini-2.0-flash-001",
         "messages": [
             {
                 "role": "user",

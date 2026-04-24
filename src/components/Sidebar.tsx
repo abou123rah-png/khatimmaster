@@ -22,25 +22,32 @@ import {
   Book,
   Navigation,
   Calendar,
-  Wand2
+  Wand2,
+  PenTool,
+  Clock,
+  ShieldCheck,
+  Coins,
+  UserRoundSearch,
+  Scroll
 } from 'lucide-react';
 
 const sidebarLinks = [
   { name: 'Accueil', href: '/', icon: Home },
   { name: 'Soutenir', href: '/soutenir', icon: Heart },
+  { name: 'Tracé Sacré', href: '/trace-sacre', icon: PenTool },
+  { name: 'Profil Spirituel', href: '/profil-spirituel', icon: UserRoundSearch },
+  { name: 'Les Secrets', href: '/asrar', icon: ShieldCheck },
+  { name: 'Heures Sacrées', href: '/heures-sacrees', icon: Clock },
   { name: 'Abjad', href: '/code-mystique', icon: Hash },
   { name: 'Khatims', href: '/khatims', icon: Calculator },
   { name: 'Ramli', href: '/ramli', icon: Star },
+  { name: 'Thalsams', href: '/thalsam', icon: Wand2 },
   { name: 'Noms Divins', href: '/asmaul-husna', icon: Sparkles },
   { name: 'Le Cosmos', href: '/cosmos', icon: Moon },
   { name: 'Harmonie', href: '/compatibilite', icon: Zap },
-  { name: 'Vidéos', href: '/videos', icon: Play },
-  { name: 'Rêves', href: '/reve', icon: Moon },
   { name: 'Zikr', href: '/zikr-personnel', icon: Key },
-  { name: 'Salat & Qibla', href: '/qibla-salat', icon: Navigation },
   { name: 'Convertisseur', href: '/convertisseur-hijri', icon: Calendar },
-  { name: 'Thalsams', href: '/thalsam', icon: Wand2 },
-  { name: 'Carnet', href: '/dashboard', icon: Book },
+  { name: 'Vidéos', href: '/videos', icon: Play },
   { name: 'Bibliothèque', href: '/recettes-mystiques', icon: Library },
 ];
 

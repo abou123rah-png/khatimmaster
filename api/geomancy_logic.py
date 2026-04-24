@@ -3,22 +3,22 @@
 import random
 
 FIGURES = {
-    1: {"name": "Via", "binary": (1, 1, 1, 1), "meaning": "Le Chemin, la Voie. Indique le mouvement, le voyage, le changement."},
-    2: {"name": "Cauda Draconis", "binary": (1, 1, 1, 2), "meaning": "La Queue du Dragon. Fin, sortie, achèvement. Peut être difficile mais nécessaire."},
-    3: {"name": "Puer", "binary": (1, 1, 2, 1), "meaning": "Le Jeune Garçon. Action, impulsion, énergie masculine, parfois imprudente."},
-    4: {"name": "Fortuna Minor", "binary": (1, 1, 2, 2), "meaning": "La Petite Fortune. Succès rapide mais éphémère, chance passagère."},
-    5: {"name": "Puella", "binary": (1, 2, 1, 1), "meaning": "La Jeune Fille. Beauté, féminité, harmonie, plaisir. Favorable pour les arts."},
-    6: {"name": "Amissio", "binary": (1, 2, 1, 2), "meaning": "La Perte, l'abandon. Indique un sacrifice nécessaire, une dépense ou un sentiment de vide."},
-    7: {"name": "Carcer", "binary": (1, 2, 2, 1), "meaning": "La Prison. Blocage, retard, isolement, restriction."},
-    8: {"name": "Laetitia", "binary": (1, 2, 2, 2), "meaning": "La Joie. Bonheur, optimisme, célébration. Annonce une issue heureuse."},
-    9: {"name": "Caput Draconis", "binary": (2, 1, 1, 1), "meaning": "La Tête du Dragon. Commencement, entrée, opportunité. Favorable."},
-    10: {"name": "Conjunctio", "binary": (2, 1, 1, 2), "meaning": "La Conjonction. Union, rencontre, mariage, association."},
-    11: {"name": "Acquisitio", "binary": (2, 1, 2, 1), "meaning": "L'Acquisition. Gain, profit, recevoir. Favorable pour les questions matérielles."},
-    12: {"name": "Rubeus", "binary": (2, 1, 2, 2), "meaning": "Le Rouge. Passion, colère, violence, action désordonnée."},
-    13: {"name": "Fortuna Major", "binary": (2, 2, 1, 1), "meaning": "La Grande Fortune. Succès majeur, chance durable, aide divine. Très favorable."},
-    14: {"name": "Albus", "binary": (2, 2, 1, 2), "meaning": "Le Blanc. Sagesse, paix, pureté, clarté d'esprit."},
-    15: {"name": "Tristitia", "binary": (2, 2, 2, 1), "meaning": "La Tristesse. Chagrin, mélancolie, difficulté."},
-    16: {"name": "Populus", "binary": (2, 2, 2, 2), "meaning": "Le Peuple. Rassemblement, communauté, opinion publique."}
+    1: {"name": "Via", "binary": (1, 1, 1, 1), "meaning": "Le Chemin, la Voie. Mouvement, voyage, changement.", "elements": ["Feu", "Air", "Eau", "Terre"]},
+    2: {"name": "Cauda Draconis", "binary": (1, 1, 1, 2), "meaning": "La Queue du Dragon. Fin, sortie, achèvement.", "elements": ["Feu", "Air", "Eau"]},
+    3: {"name": "Puer", "binary": (1, 1, 2, 1), "meaning": "Le Jeune Garçon. Action, impulsion, énergie.", "elements": ["Feu", "Air", "Terre"]},
+    4: {"name": "Fortuna Minor", "binary": (1, 1, 2, 2), "meaning": "La Petite Fortune. Succès rapide mais éphémère.", "elements": ["Feu", "Air"]},
+    5: {"name": "Puella", "binary": (1, 2, 1, 1), "meaning": "La Jeune Fille. Beauté, harmonie, plaisir.", "elements": ["Feu", "Eau", "Terre"]},
+    6: {"name": "Amissio", "binary": (1, 2, 1, 2), "meaning": "La Perte. Sacrifice nécessaire, dépense.", "elements": ["Feu", "Eau"]},
+    7: {"name": "Carcer", "binary": (1, 2, 2, 1), "meaning": "La Prison. Blocage, retard, isolement.", "elements": ["Feu", "Terre"]},
+    8: {"name": "Laetitia", "binary": (1, 2, 2, 2), "meaning": "La Joie. Bonheur, optimisme, issue heureuse.", "elements": ["Feu"]},
+    9: {"name": "Caput Draconis", "binary": (2, 1, 1, 1), "meaning": "La Tête du Dragon. Commencement, entrée.", "elements": ["Air", "Eau", "Terre"]},
+    10: {"name": "Conjunctio", "binary": (2, 1, 1, 2), "meaning": "La Conjonction. Union, rencontre, association.", "elements": ["Air", "Eau"]},
+    11: {"name": "Acquisitio", "binary": (2, 1, 2, 1), "meaning": "L'Acquisition. Gain, profit, recevoir.", "elements": ["Air", "Terre"]},
+    12: {"name": "Rubeus", "binary": (2, 1, 2, 2), "meaning": "Le Rouge. Passion, colère, action.", "elements": ["Air"]},
+    13: {"name": "Fortuna Major", "binary": (2, 2, 1, 1), "meaning": "La Grande Fortune. Succès majeur, aide divine.", "elements": ["Eau", "Terre"]},
+    14: {"name": "Albus", "binary": (2, 2, 1, 2), "meaning": "Le Blanc. Sagesse, paix, pureté.", "elements": ["Eau"]},
+    15: {"name": "Tristitia", "binary": (2, 2, 2, 1), "meaning": "La Tristesse. Chagrin, mélancolie.", "elements": ["Terre"]},
+    16: {"name": "Populus", "binary": (2, 2, 2, 2), "meaning": "Le Peuple. Rassemblement, opinion publique.", "elements": ["Stabilité"]}
 }
 
 FIGURES_BY_BINARY = {v["binary"]: v for k, v in FIGURES.items()}

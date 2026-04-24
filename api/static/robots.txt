@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
 
-Sitemap: https://khatimmaster.onrender.com/sitemap.xml
+Sitemap: https://khatimmaster.vercel.app/sitemap.xml
