@@ -1,0 +1,1605 @@
+[
+  {
+    "type": "animal",
+    "symbole": "bélier",
+    "signification": "Fin du rêveur, mort imminente",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "mouton",
+    "signification": "Sacrifice ou épreuve, parfois prospérité",
+    "contexte": "Tradition africaine",
+    "source": "Tradition orale africaine"
+  },
+  {
+    "type": "animal",
+    "symbole": "serpent",
+    "signification": "Présence de forces négatives ou trahison",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "eau",
+    "signification": "Changements à venir ou purification",
+    "contexte": "Tradition africaine et islamique",
+    "source": "Livre d’interprétation de rêves"
+  },
+  {
+    "type": "animal",
+    "symbole": "cheval",
+    "signification": "Puissance, courage, ou voyage spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "chat",
+    "signification": "Indépendance ou tromperie",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "chien",
+    "signification": "Fidélité ou danger imminent",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau",
+    "signification": "Message spirituel ou liberté",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "moustique",
+    "signification": "Petits tracas ou ennemis invisibles",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "crocodile",
+    "signification": "Ruse ou danger caché",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "éléphant",
+    "signification": "Force, sagesse ou obstacle majeur",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "lion",
+    "signification": "Courage, autorité ou menace",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "singe",
+    "signification": "Malice ou tromperie",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "baleine",
+    "signification": "Profondeur spirituelle ou danger caché",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "poisson",
+    "signification": "Prospérité ou danger caché",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "feu",
+    "signification": "Purification ou destruction",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "lune",
+    "signification": "Fécondité ou changement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "soleil",
+    "signification": "Révélation ou prospérité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "étoile",
+    "signification": "Guidance spirituelle ou destin",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "arbre",
+    "signification": "Ancrage ou sagesse ancestrale",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "baobab",
+    "signification": "Sagesse ancestrale ou longévité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "ciel",
+    "signification": "Connexion spirituelle ou protection divine",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "terre",
+    "signification": "Stabilité ou héritage",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "vent",
+    "signification": "Changement ou message spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "personne",
+    "symbole": "femme enceinte",
+    "signification": "Fertilité ou nouveau départ",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "personne",
+    "symbole": "homme enceinte",
+    "signification": "Transformation ou grossesse spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "personne",
+    "symbole": "enfant",
+    "signification": "Innocence ou nouveau départ",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "mariage",
+    "signification": "Union ou engagement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "divorce",
+    "signification": "Séparation ou rupture",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "accident",
+    "signification": "Avertissement ou danger imminent",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "voiture",
+    "signification": "Voyage ou direction de la vie",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "avion",
+    "signification": "Ascension ou élévation spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "bateau",
+    "signification": "Voyage ou épreuve",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "pont",
+    "signification": "Transition ou connexion",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "porte",
+    "signification": "Opportunité ou changement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "fenêtre",
+    "signification": "Vision ou perspective",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "clé",
+    "signification": "Solution ou accès",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "chaise",
+    "signification": "Position ou autorité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "table",
+    "signification": "Stabilité ou fondation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "lit",
+    "signification": "Repos ou intimité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "chaussures",
+    "signification": "Chemin ou direction",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "vêtements",
+    "signification": "Image de soi ou statut",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "argent",
+    "signification": "Richesse ou épreuve",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "or",
+    "signification": "Valeur ou tentation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "bijoux",
+    "signification": "Protection, pouvoir ou tentation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "arc-en-ciel",
+    "signification": "Espoir, promesse ou bénédiction",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "éclair",
+    "signification": "Avertissement, colère divine ou révélation soudaine",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "pluie",
+    "signification": "Abondance, purification ou renouveau",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "tempête",
+    "signification": "Conflit, épreuve ou bouleversement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "foudre",
+    "signification": "Punition, avertissement ou changement brutal",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "montagne",
+    "signification": "Obstacle, élévation spirituelle ou sagesse",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "vallée",
+    "signification": "Repos, sécurité ou période de calme",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "pont suspendu",
+    "signification": "Transition risquée ou choix délicat",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "feuille",
+    "signification": "Croissance, renouveau ou petites bénédictions",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "fleur",
+    "signification": "Beauté, fragilité ou opportunité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "fruit",
+    "signification": "Récompense, réussite ou tentation",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "arbre fruitier",
+    "signification": "Abondance, protection ou prospérité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "poêle ou feu de cuisine",
+    "signification": "Nourriture, foyer ou famille",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "tigre ou panthère",
+    "signification": "Danger caché, force ou vigilance",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau rare",
+    "signification": "Message spirituel ou opportunité exceptionnelle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "arc",
+    "signification": "Protection, pouvoir ou préparation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "flèche",
+    "signification": "Direction, décision ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "serpent à sonnette",
+    "signification": "Danger imminent ou trahison",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "scorpion",
+    "signification": "Trahison, ennemi ou malaise imminent",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "hippopotame",
+    "signification": "Danger caché, puissance ou agressivité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "buffalo",
+    "signification": "Force collective, endurance ou conflit",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "chèvre",
+    "signification": "Sacrifice, chance ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "buffle",
+    "signification": "Travail acharné, protection de la famille",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "cameleon",
+    "signification": "Adaptation, prudence ou tromperie",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "papillon",
+    "signification": "Transformation, message ou renouveau",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "serpent non venimeux",
+    "signification": "Changement, vigilance ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "rat ou souris",
+    "signification": "Petits problèmes, inquiétudes ou trahisons mineures",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "puits",
+    "signification": "Source de vie, secret ou richesse cachée",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "rivière",
+    "signification": "Flux de la vie, changements ou purification",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "lac",
+    "signification": "Calme, secret ou introspection",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "âne",
+    "signification": "Travail, persévérance ou lourdeur des tâches",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "pont en bois",
+    "signification": "Transition risquée ou passage difficile",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "bâton",
+    "signification": "Protection, pouvoir ou autorité",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "masque",
+    "signification": "Sagesse, identité ou secret",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "tambour",
+    "signification": "Communication, alerte ou cérémonie",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "perroquet",
+    "signification": "Message, avertissement ou personne qui parle trop",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "hibou",
+    "signification": "Sagesse, vigilance nocturne ou présage",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "chauve-souris",
+    "signification": "Secret caché, peur ou transformation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "fétiche",
+    "signification": "Protection spirituelle ou pouvoir occulte",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "feu de camp",
+    "signification": "Réunion, chaleur humaine ou partage",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "soleil couchant",
+    "signification": "Fin d’un cycle, repos ou conclusion",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "tigre",
+    "signification": "Puissance, danger ou agressivité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "bambou",
+    "signification": "Flexibilité, résilience ou croissance",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "cercle de pierres",
+    "signification": "Protection, rituel ou magie ancestrale",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "racines d’arbre",
+    "signification": "Origines, ancrage ou force familiale",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau migrateur",
+    "signification": "Voyage, changement ou message imminent",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "serpent venimeux",
+    "signification": "Danger immédiat, trahison ou ennemi proche",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "tortue",
+    "signification": "Patience, longévité ou protection",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "arbre sacré",
+    "signification": "Sagesse, force spirituelle ou lien avec les ancêtres",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "feuille morte",
+    "signification": "Fin d’un cycle, perte ou lâcher-prise",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "fleur rouge",
+    "signification": "Amour, passion ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "plante médicinale",
+    "signification": "Guérison, protection ou connaissance ancestrale",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "palmier",
+    "signification": "Abondance, prospérité ou refuge",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "eau stagnante",
+    "signification": "Danger, maladie ou blocage émotionnel",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "arc et flèches",
+    "signification": "Protection, avertissement ou action imminente",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "abeille",
+    "signification": "Travail collectif, abondance ou message urgent",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "corbeau",
+    "signification": "Mystère, présage ou avertissement spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "feu follet",
+    "signification": "Illusion, danger ou énergie spirituelle errante",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "cacao",
+    "signification": "Richesse, énergie ou prospérité",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "bouc",
+    "signification": "Sacrifice, avertissement ou force sauvage",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "nuage sombre",
+    "signification": "Difficulté, conflit ou changement imminent",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "serpent noir",
+    "signification": "Trahison, danger caché ou transformation profonde",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "oignon",
+    "signification": "Protection, purification ou révélation progressive",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "croc-en-jambe",
+    "signification": "Obstacle soudain ou trahison",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "objet",
+    "symbole": "nid d’oiseau",
+    "signification": "Famille, sécurité ou nouvel espoir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "enterrement",
+    "signification": "Fin d’un cycle, avertissement ou purification",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "danse collective",
+    "signification": "Harmonie sociale, célébration ou réussite imminente",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "pluie torrentielle",
+    "signification": "Épreuves intenses mais purification et renouveau à venir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "feu de village",
+    "signification": "Conflit collectif ou énergie spirituelle partagée",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "vol de troupeaux",
+    "signification": "Perte, trahison ou changement imprévu",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "fête traditionnelle",
+    "signification": "Chance, abondance ou connexion aux ancêtres",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "crue de rivière",
+    "signification": "Danger imminent, perturbation émotionnelle ou obstacle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "voyage par bateau",
+    "signification": "Transition, opportunité ou destin incertain",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "tempête de sable",
+    "signification": "Confusion, épreuves ou échec temporaire",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "récolte abondante",
+    "signification": "Prospérité, récompense ou réussite imminente",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "attaque de bandits",
+    "signification": "Trahison, menace ou perte de ressources",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "rituel",
+    "symbole": "cérémonie initiatique",
+    "signification": "Passage, apprentissage ou éveil spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "fuite dans la forêt",
+    "signification": "Danger, évasion ou besoin de protection",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "épidémie dans le village",
+    "signification": "Avertissement collectif ou purification nécessaire",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "pillage",
+    "signification": "Perte de ressources ou trahison imminente",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "migration d’animaux",
+    "signification": "Changement de direction, adaptation ou opportunité",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "construction d’une maison",
+    "signification": "Nouveau départ, sécurité ou fondation solide",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "bataille entre villages",
+    "signification": "Conflit, tension ou confrontation imminente",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "chute d’arbre",
+    "signification": "Perte soudaine, avertissement ou obstacle imprévu",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "fête de récolte",
+    "signification": "Abondance, réussite collective ou gratitude ancestrale",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "attaque de lion",
+    "signification": "Danger imminent, courage nécessaire ou épreuve personnelle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "tempête électrique",
+    "signification": "Avertissement, changement brusque ou énergie imprévisible",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "trésor caché",
+    "signification": "Opportunité, richesse spirituelle ou matérielle à découvrir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "perte d’enfant",
+    "signification": "Fin de projet, échec ou avertissement profond",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "rassemblement de sages",
+    "signification": "Conseil, guidance ou décision importante à venir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "incendie de champs",
+    "signification": "Perte, avertissement ou purification nécessaire",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "découverte d’un chemin secret",
+    "signification": "Nouvelle opportunité, initiation ou direction inattendue",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "réunion de famille",
+    "signification": "Unité, transmission de valeurs ou rappel des racines",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "avalanche ou glissement de terrain",
+    "signification": "Épreuve brutale, danger imminent ou bouleversement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "vol d’oiseaux",
+    "signification": "Annonce de changement, nouvelles inattendues ou messages spirituels",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "rituel",
+    "symbole": "danse autour du feu",
+    "signification": "Célébration, communion avec les ancêtres ou énergie collective",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "tempête de vent violent",
+    "signification": "Conflit, agitation ou transformation rapide",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "naufrage",
+    "signification": "Perte, échec ou avertissement sur la prudence",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "grande migration humaine",
+    "signification": "Changement collectif, déplacement ou opportunité de renouveau",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "apparition d’ancêtre",
+    "signification": "Avertissement, guidance ou conseil spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "marché animé",
+    "signification": "Échanges, opportunités commerciales ou sociale, rencontre importante",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "perte de chaussures",
+    "signification": "Manque de préparation, vulnérabilité ou obstacles inattendus",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "chemin bloqué par des rochers",
+    "signification": "Obstacles majeurs, épreuve de patience ou défi à surmonter",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau blessé",
+    "signification": "Avertissement, faiblesse passagère ou nécessité de protection",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "rencontre avec un étranger",
+    "signification": "Nouvelle influence, conseil ou opportunité inattendue",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "entrée dans une grotte",
+    "signification": "Exploration intérieure, découverte de secrets ou initiation",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "feuillage sec qui tombe",
+    "signification": "Perte, fin de cycle ou nécessité de renouveau",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "rivière débordante",
+    "signification": "Émotion forte, danger imminent ou changement brusque",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "animal sauvage poursuivant le rêveur",
+    "signification": "Conflit imminent, peur ou menace à surmonter",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "visite d’un roi ou chef",
+    "signification": "Autorité, reconnaissance ou responsabilité importante",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "chasse traditionnelle",
+    "signification": "Quête, effort pour obtenir une réussite ou vigilance",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "festin ou banquet",
+    "signification": "Prospérité, partage ou harmonie sociale",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "perte d’objets précieux",
+    "signification": "Avertissement, perte imminente ou vigilance requise",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "rituel",
+    "symbole": "danse de village",
+    "signification": "Célébration collective, énergie positive ou renforcement des liens",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "ciel rouge ou nuageux",
+    "signification": "Avertissement, colère des ancêtres ou événement dramatique à venir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "chant d’oiseau à l’aube",
+    "signification": "Annonce de bonne nouvelle, guidance spirituelle ou début positif",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "foudre frappant un arbre",
+    "signification": "Danger imminent, choc soudain ou avertissement ancestral",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "evenement",
+    "symbole": "tomber dans un puits",
+    "signification": "Perte de contrôle, introspection profonde ou avertissement de prudence",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "animal domestique disparu",
+    "signification": "Perte de protection, inquiétude familiale ou changement dans le foyer",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "rituel",
+    "symbole": "cérémonie du village",
+    "signification": "Harmonie sociale, importance de la communauté ou célébration",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "fuite d’eau souterraine",
+    "signification": "Émotion refoulée, problème caché ou événement inattendu",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "manger un fruit pourri",
+    "signification": "Erreur à éviter, conséquence négative ou leçon de vigilance",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "pluie de cendres",
+    "signification": "Punition, avertissement spirituel ou période difficile",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "désert ou savane infinie",
+    "signification": "Épreuve, solitude, ou recherche de force intérieure",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "enfant perdu",
+    "signification": "Avertissement, responsabilité ou vulnérabilité à protéger",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "rituel",
+    "symbole": "danse de masques",
+    "signification": "Rituel, secret ancestral ou révélation d’un mystère",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "evenement",
+    "symbole": "chute d’un fruit mûr",
+    "signification": "Abondance, succès imminent ou fin d’un cycle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "vent violent dans la forêt",
+    "signification": "Perturbation, danger ou changement radical",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "rituel",
+    "symbole": "battement de tambour",
+    "signification": "Annonce d’événement important, communication avec les ancêtres ou appel à la communauté",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "rituel",
+    "symbole": "fumée rituelle",
+    "signification": "Purification, protection spirituelle ou communication avec les esprits",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "objet",
+    "symbole": "masque cérémonial",
+    "signification": "Transmission de messages spirituels, leçon de sagesse ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "rituel",
+    "symbole": "offrande de nourriture",
+    "signification": "Apaisement des esprits, gratitude ou renforcement de la protection",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "objet",
+    "symbole": "bougie ou feu rituel",
+    "signification": "Illumination, guidance ou début d’une phase importante",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "pierre sacrée ou autel",
+    "signification": "Point de force spirituelle, protection ou lieu de révélation",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "fumée colorée",
+    "signification": "Avertissement, message des ancêtres ou énergie spirituelle spécifique",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "objet",
+    "symbole": "crâne d’animal",
+    "signification": "Protection, puissance spirituelle ou avertissement de danger",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "element",
+    "symbole": "bambou ou plante sacrée",
+    "signification": "Force, résilience et guidance spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "eau claire d’une source",
+    "signification": "Pureté, révélation ou opportunité de renouveau",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "oeuf ou poussin dans le rêve",
+    "signification": "Nouvelle vie, opportunité ou développement personnel",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "cloche ou grelot",
+    "signification": "Annonce, appel à l’attention ou protection spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "element",
+    "symbole": "plantes médicinales ou herbes",
+    "signification": "Guérison, protection ou conseil spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "element",
+    "symbole": "sentier illuminé par la lune",
+    "signification": "Clarté, guidance et direction spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "element",
+    "symbole": "étoile filante",
+    "signification": "Alerte, souhait à formuler ou événement exceptionnel imminent",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "animal",
+    "symbole": "battement d’ailes d’oiseau",
+    "signification": "Message des ancêtres, changement rapide ou éveil spirituel",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "lézard apparaissant dans le rêve",
+    "signification": "Avertissement discret, malaise imminent ou tromperie autour du rêveur",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ouest-africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "orage violent",
+    "signification": "Épreuve imminente, purification ou changement brutal",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "evenement",
+    "symbole": "pierre tombant du ciel",
+    "signification": "Danger soudain ou message urgent des esprits",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "feu incontrôlable",
+    "signification": "Conflit, colère ou purification nécessaire",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "element",
+    "symbole": "fleur rare éclorant",
+    "signification": "Nouvelle opportunité, protection divine ou bénédiction",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "croisement de chemins",
+    "signification": "Choix crucial, changement de vie ou intervention spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "element",
+    "symbole": "bambou cassé",
+    "signification": "Obstacle, perte de force ou avertissement de faiblesse",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "danse des animaux",
+    "signification": "Message des ancêtres, célébration ou signe de chance",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "nuit très sombre",
+    "signification": "Moment de doute, introspection ou présence d’esprits protecteurs",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "rocher au bord du fleuve",
+    "signification": "Stabilité, patience ou test spirituel à surmonter",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "element",
+    "symbole": "éclat de lumière soudaine",
+    "signification": "Révélation, guidance ou avertissement rapide",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "animal",
+    "symbole": "poisson sautant hors de l’eau",
+    "signification": "Annonce de nouvelles, prospérité ou changement soudain",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "element",
+    "symbole": "marée montante",
+    "signification": "Émotions fortes, influence des ancêtres ou danger imminent",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "objet",
+    "symbole": "pont brisé",
+    "signification": "Obstacle à franchir, fin d’une relation ou difficulté à venir",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "grain de riz ou maïs tombant",
+    "signification": "Abondance future, bénédiction ou chance matérielle",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles africaines"
+  },
+  {
+    "type": "evenement",
+    "symbole": "mort d’un animal domestique",
+    "signification": "Annonce de perte ou de rupture dans la famille ou cercle proche",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "evenement",
+    "symbole": "maladie soudaine dans le rêve",
+    "signification": "Avertissement de danger physique ou spirituel, nécessite purification",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ivoiriennes"
+  },
+  {
+    "type": "evenement",
+    "symbole": "pluie de sang",
+    "signification": "Signal de conflit imminent, avertissement des ancêtres",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "personne inconnue qui disparaît",
+    "signification": "Perte d’une opportunité ou rupture inattendue",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles béninoises"
+  },
+  {
+    "type": "element",
+    "symbole": "feu follet ou lumière flottante",
+    "signification": "Présence des esprits ou ancêtres, guidance à suivre",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "objet",
+    "symbole": "masque rituel porté",
+    "signification": "Connexion aux traditions et rites ancestraux, protection ou avertissement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles sénégalaises"
+  },
+  {
+    "type": "rituel",
+    "symbole": "cercle de fumée",
+    "signification": "Protection spirituelle ou annonce de purification nécessaire",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "evenement",
+    "symbole": "rêver de propre mort",
+    "signification": "Transformation profonde, avertissement pour changer de comportement",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ivoiriennes"
+  },
+  {
+    "type": "evenement",
+    "symbole": "rêver de la mort d’un proche",
+    "signification": "Changement ou séparation, pas toujours littéral, attention aux signes",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "rituel",
+    "symbole": "offrande d’aliments dans le rêve",
+    "signification": "Communication avec les ancêtres, demande de protection ou guidance",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "evenement",
+    "symbole": "foudre frappant près du rêveur",
+    "signification": "Avertissement urgent, danger imminent ou intervention divine",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles sénégalaises"
+  },
+  {
+    "type": "evenement",
+    "symbole": "passage secret ou tunnel",
+    "signification": "Transition importante, découverte de secrets ou ouverture de nouvelles voies",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "evenement",
+    "symbole": "murmure des ancêtres",
+    "signification": "Message ou conseil à suivre, souvent lié à une décision imminente",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles ivoiriennes"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau de mauvais augure",
+    "signification": "Annonce de mauvaise nouvelle ou trahison proche",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "element",
+    "symbole": "arbre déraciné",
+    "signification": "Instabilité, perte de protection ou changement brusque dans la vie",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles béninoises"
+  },
+  {
+    "type": "element",
+    "symbole": "eau stagnante ou boue",
+    "signification": "Énergie bloquée, situations compliquées à résoudre",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  },
+  {
+    "type": "objet",
+    "symbole": "masse de pierres empilées",
+    "signification": "Balisage de chemins spirituels ou alertes sur des choix à venir",
+    "contexte": "Tradition africaine",
+    "source": "Observations culturelles sénégalaises"
+  },
+  {
+    "type": "rituel",
+    "symbole": "coup de tambour seul",
+    "signification": "Annonce spirituelle ou rituel imminent, signe de rassemblement",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout béninois"
+  },
+  {
+    "type": "personne",
+    "symbole": "bébé ou nourrisson",
+    "signification": "Nouvelle responsabilité ou début d’un cycle, attention aux présages",
+    "contexte": "Tradition africaine",
+    "source": "Marabouts ivoiriens"
+  },
+  {
+    "type": "evenement",
+    "symbole": "voler ou être poursuivi",
+    "signification": "Problème ou danger imminent à gérer rapidement",
+    "contexte": "Tradition africaine",
+    "source": "Observations béninoises"
+  },
+  {
+    "type": "evenement",
+    "symbole": "perte de dent",
+    "signification": "Changement de fortune ou avertissement sur santé",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout sénégalais"
+  },
+  {
+    "type": "evenement",
+    "symbole": "chemin bloqué",
+    "signification": "Obstacle spirituel ou matériel à surmonter",
+    "contexte": "Tradition africaine",
+    "source": "Observations ivoiriennes"
+  },
+  {
+    "type": "evenement",
+    "symbole": "éclipse ou obscurité soudaine",
+    "signification": "Avertissement, perte de clarté dans vie personnelle ou spirituelle",
+    "contexte": "Tradition africaine",
+    "source": "Marabouts béninois"
+  },
+  {
+    "type": "element",
+    "symbole": "feuille ou plante fanée",
+    "signification": "Fin d’un cycle ou perte d’énergie",
+    "contexte": "Tradition africaine",
+    "source": "Observations sénégalaises"
+  },
+  {
+    "type": "animal",
+    "symbole": "oiseau blanc",
+    "signification": "Message positif, bénédiction ou guidance",
+    "contexte": "Tradition africaine",
+    "source": "Consultation marabout ivoirien"
+  }
+]

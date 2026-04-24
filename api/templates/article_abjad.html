@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<meta name="description" content="Découvrez le calcul Abjad : attribuez une valeur numérique à chaque lettre arabe pour révéler le poids mystique des noms, versets et phrases. Guide simple pour débutants avec exemples et outil interactif.">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Titre de l'article -->
+            <h1 class="mb-4" style="font-weight: 700;">{{ title }}</h1>
+
+            <!-- Contenu de l'article -->
+            <article class="blog-post">
+                <p class="lead">
+                    Vous avez probablement déjà entendu parler de "poids mystique" ou de la "science des lettres" (Ilm al-Huruf). Au cœur de ces traditions fascinantes se trouve une méthode ancienne et puissante : le calcul Abjad. Mais qu'est-ce que c'est exactement ?
+                </p>
+                <p>
+                    Dans ce guide simple, nous allons démystifier le calcul Abjad, comprendre son origine et voir comment vous pouvez l'utiliser, même si vous êtes un parfait débutant.
+                </p>
+
+                <h3 class="mt-5 mb-3">Qu'est-ce que l'Ordre Abjadi ?</h3>
+                <p>
+                    L'ordre Abjadi est l'un des plus anciens systèmes de classement des lettres de l'alphabet arabe. Contrairement à l'ordre alphabétique moderne (Alif, Ba, Ta, Tha...), l'ordre Abjadi regroupe les lettres d'une manière héritée des anciens alphabets sémitiques, comme le phénicien.
+                </p>
+                <p>
+                    La véritable magie de cet ordre est que <strong>chaque lettre se voit attribuer une valeur numérique</strong>. C'est ce système de correspondance qui est à la base du calcul Abjad.
+                </p>
+
+                <h3 class="mt-5 mb-3">Comment Fonctionne le Calcul ?</h3>
+                <p>
+                    Le principe est simple : pour trouver le "poids mystique" d'un mot ou d'une phrase, il suffit d'additionner la valeur numérique de chaque lettre qui le compose.
+                </p>
+                <p>Voici les valeurs des lettres les plus courantes :</p>
+                <ul>
+                    <li><strong>Alif (ا)</strong> = 1</li>
+                    <li><strong>Ba (ب)</strong> = 2</li>
+                    <li><strong>Jim (ج)</strong> = 3</li>
+                    <li><strong>Dal (د)</strong> = 4</li>
+                    <li>... et ainsi de suite.</li>
+                </ul>
+
+                <div class="alert alert-info mt-4">
+                    <strong>Exemple Concret :</strong>  
+
+                    Prenons le mot "Allah" (الله). Il est composé des lettres :
+                    <ul class="mb-0">
+                        <li>Alif (ا) = 1</li>
+                        <li>Lam (ل) = 30</li>
+                        <li>Lam (ل) = 30</li>
+                        <li>Ha (ه) = 5</li>
+                    </ul>
+                    Le calcul Abjad est donc : 1 + 30 + 30 + 5 = <strong>66</strong>.
+                </div>
+
+                <h3 class="mt-5 mb-3">À Quoi Sert le Calcul Abjad ?</h3>
+                <p>
+                    Le calcul Abjad n'est pas qu'un simple exercice mathématique. Il est utilisé depuis des siècles dans de nombreuses traditions spirituelles pour :
+                </p>
+                <ol>
+                    <li><strong>Découvrir des liens cachés :</strong> Trouver des mots ou des phrases qui ont la même valeur numérique, suggérant une connexion sémantique ou spirituelle profonde.</li>
+                    <li><strong>Créer des talismans et des khatims :</strong> La valeur numérique d'un nom ou d'un verset est souvent utilisée comme clé pour la construction de carrés magiques.</li>
+                    <li><strong>Interpréter des textes :</strong> Certains exégètes l'utilisent comme un outil d'analyse pour révéler des dimensions cachées du Coran ou d'autres textes sacrés.</li>
+                </ol>
+
+                <div class="card text-center my-5 p-4 bg-light border-primary">
+                    <div class="card-body">
+                        <h4 class="card-title">Essayez par Vous-Même !</h4>
+                        <p class="card-text">La meilleure façon de comprendre est de pratiquer. Pourquoi ne pas calculer le poids de votre propre nom ?</p>
+                        <p>Pour vous faciliter la tâche, nous avons créé un outil simple et puissant qui fait tout le travail pour vous.</p>
+                        <a href="{{ url_for('clavier') }}" class="btn btn-primary btn-lg">
+                            → Utilisez notre Calculateur Abjad et Clavier Arabe
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+                <p class="text-muted fst-italic">
+                    Cet article fait partie de notre série d'introductions aux sciences mystiques. Explorez d'autres sujets dans notre section <a href="{{ url_for('recettes_mystiques') }}">Textes & Zikr</a>.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "description": "Découvrez le calcul Abjad : attribuez une valeur numérique à chaque lettre arabe pour révéler le poids mystique des noms, versets et phrases. Guide simple pour débutants avec exemples et outil interactif.",
+  "url": "{{ request.url }}",
+  "author": {
+    "@type": "Person",
+    "name": "M. Cissé"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KhatimMaster",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+    }
+  },
+  "datePublished": "2025-01-01",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.url }}"
+  }
+}
+</script>
+{% endblock %}

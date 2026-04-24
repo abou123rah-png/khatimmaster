@@ -1,53 +1,70 @@
 # ==============================
-# Fichiers de cache et compilés Python
+# 🔐 SECRETS — NE JAMAIS COMMITTER
+# ==============================
+.env
+.env.*
+!.env.example
+*.env
+secrets.json
+
+# ==============================
+# Python — Cache et compilés
 # ==============================
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.pyc
 .Python
+*.egg-info/
+dist/
+build/
+.eggs/
 
 # ==============================
-# Environnements virtuels
+# Environnements virtuels Python
 # ==============================
 venv/
 env/
 .venv/
 ENV/
+.env/
 
 # ==============================
-# Fichiers d'environnement (SECRETS)
+# Base de données locale (ne pas versionner)
 # ==============================
-.env
-*.env
-.env.local
-.env.development
-.env.production
+*.db
+*.sqlite
+*.sqlite3
+api/dreams.db
+dreams.db
 
 # ==============================
-# Fichiers de configuration IDE
+# Next.js / Node.js
+# ==============================
+node_modules/
+.next/
+out/
+.npm
+.cache
+
+# ==============================
+# Vercel
+# ==============================
+.vercel
+
+# ==============================
+# Fichiers IDE
 # ==============================
 .vscode/
 .idea/
 *.swp
 *.swo
 .DS_Store
+Thumbs.db
+desktop.ini
 
 # ==============================
-# Fichiers de base de données SQLite — SAUF celui de ton app
-# ==============================
-# On ignore TOUT dans instance/ SAUF khatimmaster.db
-instance/*
-!instance/khatimmaster.db
-
-# On ignore les autres .db si tu en crées par erreur
-# mais on ne touche PAS à khatimmaster.db
-*.sqlite3
-# dreams.db  # <-- Décommente cette ligne SI tu utilises dreams.db AU LIEU de khatimmaster.db
-
-# ==============================
-# Fichiers de logs et temporaires
+# Logs
 # ==============================
 *.log
 logs/
@@ -55,7 +72,7 @@ logs/
 tmp/
 
 # ==============================
-# Fichiers générés par les tests
+# Tests Python
 # ==============================
 .pytest_cache/
 .coverage
@@ -64,21 +81,7 @@ htmlcov/
 .tox/
 
 # ==============================
-# Fichiers système ou OS
-# ==============================
-Thumbs.db
-desktop.ini
-
-# ==============================
-# Dossiers uploadés par les utilisateurs (optionnel — à adapter)
-# ==============================
-# instance/uploads/  # <-- Décommente si tu veux IGNORER les uploads utilisateurs
-# static/uploads/
-# static/uploadPDF/
-# static/uploadVIDEO/
-
-# ==============================
-# Fichiers de déploiement (optionnel)
+# Build / Déploiement Python
 # ==============================
 .dockerignore
 Dockerfile
@@ -86,7 +89,9 @@ Procfile
 runtime.txt
 
 # ==============================
-# Articles et fichiers statiques (DOIVENT être suivis par Git)
+# Fichiers temporaires KhatimMaster
 # ==============================
-# articles/  ← Si vous voulez aussi suivre les articles, décommentez cette ligne
-# sitemap.xml ← ❌ SUPPRIMEZ cette ligne ou mettez un # devant
+scratch/
+api/__pycache__/
+api/routes/__pycache__/
+extracted_funcs.txt

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traducteur Nom Français → Arabe + Calcul PM — KhatimMaster</title>
+    <meta name="description" content="Traduisez votre nom du français vers l'arabe avec notre outil de translittération phonétique. Calculez ensuite sa valeur mystique (PM) pour vos pratiques ésotériques.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            box-sizing: border-box;
+        }
+        
+        .mystic-container {
+            background: rgba(21, 138, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+            padding: 1.5rem;
+            margin: 1rem auto;
+            /* Centré horizontalement */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .btn-mystic {
+            background: linear-gradient(45deg, #ff7b00 0%, #ffaa00 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-mystic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+        }
+        
+        .btn-home {
+            background: linear-gradient(45deg, #158aff 0%, #00b4ff 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(21, 138, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(21, 138, 255, 0.4);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            color: #c0c0c0; /* Couleur argentée */
+        }
+        
+        .floating:hover {
+            transform: scale(1.2) translateY(-10px);
+            color: #ffaa00;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .input-mystic {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(0, 180, 255, 0.3);
+            width: 100%;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            color: #333;
+        }
+        
+        .input-mystic:focus {
+            outline: none;
+            border-color: #158aff;
+            box-shadow: 0 0 0 3px rgba(21, 138, 255, 0.3);
+        }
+        
+        .result-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .result-box.show {
+            display: block;
+        }
+        
+        .result-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.3);
+        }
+        
+        /* En-tête simple */
+        .simple-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 0.75rem 1.25rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+        
+        .simple-header .logo img {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Pied de page simple */
+        .simple-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a2e;
+            padding: 0.625rem 1.25rem;
+            z-index: 1000;
+            text-align: center;
+            color: white;
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .simple-footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        /* Responsive buttons */
+        @media (min-width: 768px) {
+            .button-group {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .button-group {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Styles pour les titres et labels */
+        h1, h3, label {
+            color: white;
+        }
+
+        /* Style pour le sous-titre */
+        .subtitle {
+            color: #a0c8ff;
+        }
+    </style>
+</head>
+<body>
+
+  <header class="simple-header">
+    <a href="{{ url_for('accueil') }}" class="logo">
+      <img src="{{ url_for('static', filename='images/icone.png') }}" alt="KhatimMaster">
+      KhatimMaster
+    </a>
+    <span class="text-white text-sm">Traducteur Nom Français - Arabe</span>
+  </header>
+
+    <div class="container">
+        <div class="mystic-container">
+            <!-- ✅ Icône LUNE juste avant le "T" de Traducteur -->
+            <div class="absolute -top-10 left-0 text-5xl">
+                <i class="fas fa-moon floating" title="Lune mystique"></i>
+            </div>
+            <!-- ✅ Icône ÉTOILE juste après le "s" de Noms -->
+            <div class="absolute -top-10 right-0 text-5xl">
+                <i class="fas fa-star floating" style="animation-delay: 0.5s;" title="Étoile guide"></i>
+            </div>
+            
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">Traducteur de Noms</h1>
+                <p class="subtitle text-xl opacity-90">Français vers Arabe</p>
+            </div>
+            
+            <!-- Main content -->
+            <div class="mb-8">
+                <!-- Input field -->
+                <div class="mb-6">
+                    <label for="nameInput" class="block text-lg font-medium mb-2">
+                        <i class="fas fa-signature mr-2"></i>Entrez le nom en français :
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nameInput" 
+                        class="input-mystic"
+                        placeholder="Ex: mohammed"
+                    >
+                </div>
+                
+                <!-- Buttons -->
+                <div class="button-group mb-8">
+                    <button 
+                        onclick="translateToArabic()"
+                        class="btn-mystic"
+                    >
+                        <i class="fas fa-language"></i>
+                        Traduire
+                    </button>
+                    
+                    <button 
+                        onclick="window.location.href='{{ url_for('accueil') }}'" 
+                        class="btn-home"
+                    >
+                        <i class="fas fa-home"></i>
+                        Retour à l'accueil
+                    </button>
+                </div>
+                
+                <!-- Result -->
+                <div id="result" class="result-box">
+                    <h3 class="font-semibold mb-2">Nom en arabe：</h3>
+                    <p id="arabicResult" class="arabic-text text-2xl font-bold"></p>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="text-center text-sm">
+                <p>Système basé sur la translittération phonétique</p>
+                <div class="flex justify-center gap-4 mt-3 text-white text-opacity-70">
+                    <i class="fas fa-hamsa"></i>
+                    <i class="fas fa-language"></i>
+                    <i class="fas fa-translate"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="simple-footer">
+        &copy; KhatimMaster - Par M. Cissé. Tous droits réservés. | <a href="mailto:cissdoro@gmail.com">cissdoro@gmail.com</a>
+    </footer>
+
+    <script>
+        const translitMap = {
+            'a': 'ا', 'â': 'ا', 'à': 'ا', 'ā': 'ا', 'b': 'ب', 'p': 'پ', 't': 'ت',
+            'ṯ': 'ث', 'j': 'ج', 'ǧ': 'ج', 'c': 'چ', 'ḥ': 'ح', 'ẖ': 'خ', 'd': 'د',
+            'ḏ': 'ذ', 'r': 'ر', 'z': 'ز', 's': 'س', 'š': 'ش', 'ṣ': 'ص', 'ḍ': 'ض',
+            'ṭ': 'ط', 'ẓ': 'ظ', 'ʿ': 'ع', 'ġ': 'غ', 'f': 'ف', 'q': 'ق', 'k': 'ك',
+            'l': 'ل', 'm': 'م', 'n': 'ن', 'h': 'ه', 'w': 'و', 'ū': 'و', 'o': 'و',
+            'i': 'ي', 'ī': 'ي', 'y': 'ي', 'ء': 'ء', 'أ': 'أ', 'إ': 'إ', 'ؤ': 'ؤ', 'ئ': 'ئ',
+            'é': 'ي', 'è': 'ي', 'ê': 'ي', 'ë': 'ي', 'ç': 'س', ' ': ' '
+        };
+
+        function translateToArabic() {
+            let input = document.getElementById('nameInput').value.toLowerCase();
+            if (!input.trim()) {
+                alert("Veuillez entrer un nom à traduire");
+                return;
+            }
+            
+            input = input.replace(/ou/g, 'و').replace(/o/g, 'و');
+            
+            let result = '';
+            for (let char of input) {
+                result += translitMap[char] || char;
+            }
+            
+            document.getElementById('arabicResult').innerText = result;
+            document.getElementById('result').classList.add('show');
+        }
+        
+        document.getElementById('nameInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') translateToArabic();
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Traducteur Nom Français → Arabe + Calcul PM — KhatimMaster",
+      "description": "Traduisez votre nom du français vers l'arabe avec notre outil de translittération phonétique. Calculez ensuite sa valeur mystique (PM) pour vos pratiques ésotériques.",
+      "url": "https://khatimmaster.onrender.com/ton_nom_en_arabe",
+      "applicationCategory": "Spiritual Tool",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KhatimMaster",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+        }
+      }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/icone.png') }}" type="image/png">
+    <!-- CORRECTION : Suppression des espaces en fin de URL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CORRECTION : Suppression des espaces en fin de URL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #fff;
+            font-family: 'Amiri', serif;
+            min-height: 100vh;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        .islamic-pattern {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==");
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,0.2); transition: transform 0.3s, box-shadow 0.3s; border-radius:15px; overflow:hidden; }
+        .card:hover { transform: translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.4); background: rgba(255,255,255,0.15); }
+        .card-img-top { border-radius:0; object-fit:cover; height:200px; cursor:pointer; }
+        .card-title { font-weight:600; color:#ffd700; text-shadow:0 0 10px rgba(255,215,0,0.7); }
+        .btn-outline-primary { border-color:#ffd700; color:#ffd700; }
+        .btn-outline-primary:hover { background:#ffd700; color:#1a2a6c; }
+        #videoPlayer { background:#000; border-radius:10px; padding:20px; }
+        .modal-content { background: rgba(26,42,108,0.95); border:1px solid #ffd700; }
+        .modal-title { color:#ffd700; }
+        .modal-header, .modal-footer { border-color: rgba(255,215,0,0.3); }
+        h2 { text-shadow: 0 0 20px #ffd700; }
+        .btn-retour { background: rgba(255,215,0,0.2); border:1px solid #ffd700; color:#ffd700; font-weight:500; margin-bottom:1.5rem; }
+        .btn-retour:hover { background:#ffd700; color:#1a2a6c; }
+        .simple-header { position:fixed; top:0; left:0; right:0; background:#1a2a6c; padding:12px 20px; z-index:1000; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,215,0,0.3);}
+        .simple-header .logo { display:flex; align-items:center; gap:10px; color:white; text-decoration:none; font-weight:bold; font-size:1.2rem;}
+        .simple-header .logo img { width:30px; height:30px; }
+        .simple-footer { position:fixed; bottom:0; left:0; right:0; background:#1a2a6c; padding:10px 20px; z-index:1000; text-align:center; color:white; font-size:0.9rem; border-top:1px solid rgba(255,215,0,0.3);}
+        .simple-footer a { color:#ffd700; text-decoration:none; }
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+    </style>
+</head>
+<body class="d-flex flex-column">
+    <div class="islamic-pattern"></div>
+
+    <header class="simple-header">
+        <a href="{{ url_for('accueil') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/icone.png') }}" alt="KhatimMaster">
+            KhatimMaster
+        </a>
+        <span class="text-white text-sm">🎬 Bibliothèque de Vidéos Sacrées</span>
+    </header>
+
+    <div class="container mt-5 pt-5">
+        <div class="text-center">
+            <a href="{{ url_for('accueil') }}" class="btn btn-retour">← Retour à l'accueil</a>
+        </div>
+
+        <h2 class="text-center mb-5">🎬 Bibliothèque de Vidéos Sacrées</h2>
+        <div class="row g-4">
+            {% for video in videos %}
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow">
+                    <div class="ratio ratio-16x9">
+                        {% if video.platform == 'dailymotion' %}
+                        <!-- CORRECTION : Suppression des espaces en fin de URL -->
+                        <img src="https://www.dailymotion.com/thumbnail/video/{{ video.id }}" alt="{{ video.title }}"
+                             data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="{{ video.id }}" data-platform="dailymotion">
+                        {% elif video.platform == 'rumble' %}
+                        <!-- CORRECTION : Suppression des espaces en fin de URL -->
+                        <img src="https://rumble.com/embed/{{ video.id }}/thumbnail" alt="{{ video.title }}"
+                             data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="{{ video.id }}" data-platform="rumble">
+                        {% elif video.platform == 'youtube' %}
+                        <!-- CORRECTION : Suppression des espaces en fin de URL -->
+                        <img src="https://img.youtube.com/vi/{{ video.id }}/hqdefault.jpg" alt="{{ video.title }}"
+                             data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="{{ video.id }}" data-platform="youtube">
+                        {% elif video.platform == 'local' %}
+                        <img src="{{ url_for('static', filename='images/' ~ video.id ~ '.png') }}"
+                             onerror="this.src='{{ url_for('static', filename='images/default.png') }}';"
+                             alt="{{ video.title }}" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="{{ video.id }}" data-platform="local">
+                        {% endif %}
+                    </div>
+                    <div class="card-body p-3 text-center">
+                        <h6 class="card-title">{{ video.title }}</h6>
+                        {% if video.platform == 'local' %}
+                        <a class="btn btn-outline-primary btn-sm mt-2" href="{{ url_for('static', filename='videos/' ~ video.id ~ '.mp4') }}" download>📥 Télécharger</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <div class="alert alert-warning text-center">Aucune vidéo disponible pour le moment.</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="simple-footer">
+        &copy; KhatimMaster — Par M. Cissé. Tous droits réservés. | <a href="mailto:cissdoro@gmail.com">cissdoro@gmail.com</a>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">▶ Lecture</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="videoPlayer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CORRECTION : Suppression des espaces en fin de URL -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var videoModal = document.getElementById('videoModal');
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var videoId = button.getAttribute('data-video-id');
+            var platform = button.getAttribute('data-platform');
+            var playerDiv = document.getElementById('videoPlayer');
+
+            if (platform === 'youtube') {
+                // CORRECTION : Suppression des espaces en fin de URL
+                playerDiv.innerHTML = `<iframe width="100%" height="500" src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>`;
+            } else if (platform === 'dailymotion') {
+                // CORRECTION : Suppression des espaces en fin de URL
+                playerDiv.innerHTML = `<iframe width="100%" height="500" src="https://www.dailymotion.com/embed/video/${videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+            } else if (platform === 'rumble') {
+                // CORRECTION : Suppression des espaces en fin de URL
+                playerDiv.innerHTML = `<iframe width="100%" height="500" src="https://rumble.com/embed/${videoId}/?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+            } else if (platform === 'local') {
+                playerDiv.innerHTML = `<video width="100%" height="500" controls autoplay><source src="/static/videos/${videoId}.mp4" type="video/mp4">Votre navigateur ne supporte pas la vidéo.</video>`;
+            }
+        });
+
+        videoModal.addEventListener('hide.bs.modal', function () {
+            document.getElementById('videoPlayer').innerHTML = '';
+        });
+    });
+    </script>
+
+    <!-- JSON-LD SEO -->
+    <!-- CORRECTION : Bloc complété et espaces supprimés -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "https://khatimmaster.onrender.com/videos",
+      "publisher": {
+        "@type": "Organization",
+        "name": "KhatimMaster",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://khatimmaster.onrender.com/static/images/icone.png"
+        }
+      }
+    }
+    </script>
+</body>
+</html>
