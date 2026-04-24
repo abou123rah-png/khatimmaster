@@ -44,9 +44,12 @@ ARTICLES_FOLDER = os.path.join(STATIC_FOLDER, 'articles')
 PDF_FOLDER = os.path.join(STATIC_FOLDER, 'uploadPDF')
 VIDEO_FOLDER = os.path.join(STATIC_FOLDER, 'uploadVIDEO')
 
-# Assurer l'existence des dossiers
-for folder in [STATIC_FOLDER, ARTICLES_FOLDER, PDF_FOLDER, VIDEO_FOLDER]:
-    os.makedirs(folder, exist_ok=True)
+# Assurer l'existence des dossiers (seulement si possible, Vercel est read-only)
+try:
+    for folder in [STATIC_FOLDER, ARTICLES_FOLDER, PDF_FOLDER, VIDEO_FOLDER]:
+        os.makedirs(folder, exist_ok=True)
+except OSError:
+    logger.warning("Vercel (ou read-only filesystem) : impossible de créer les dossiers de logs/uploads.")
 
 load_dotenv()
 
@@ -107,9 +110,15 @@ def serve_static(filename):
     return send_from_directory(app.static_folder, decoded_filename)
 
 # ✅ INITIALISATION DE LA BASE DE DONNÉES
+def get_db_path():
+    # Sur Vercel, seul /tmp est inscriptible. Sinon, on utilise le dossier courant.
+    if os.environ.get('VERCEL') == '1':
+        return '/tmp/dreams.db'
+    return os.path.join(os.path.dirname(__file__), 'dreams.db')
+
 def init_db():
     try:
-        db_path = os.path.join(os.path.dirname(__file__), 'dreams.db')
+        db_path = get_db_path()
         conn = sqlite3.connect(db_path)
         c = conn.cursor()
         # Table pour le Carnet Secret
@@ -152,7 +161,7 @@ def save_secret():
         return jsonify({"error": "Titre et contenu requis"}), 400
         
     try:
-        db_path = os.path.join(os.path.dirname(__file__), 'dreams.db')
+        db_path = get_db_path()
         conn = sqlite3.connect(db_path)
         c = conn.cursor()
         c.execute("INSERT INTO saved_results (title, content, category) VALUES (?, ?, ?)", (title, content, category))
@@ -165,7 +174,7 @@ def save_secret():
 @app.route('/api/saved-secrets')
 def get_saved_secrets():
     try:
-        db_path = os.path.join(os.path.dirname(__file__), 'dreams.db')
+        db_path = get_db_path()
         conn = sqlite3.connect(db_path)
         c = conn.cursor()
         c.execute("SELECT id, title, content, category, created_at FROM saved_results ORDER BY created_at DESC")
@@ -188,7 +197,7 @@ def get_saved_secrets():
 @app.route('/api/delete-secret/<int:secret_id>', methods=['DELETE'])
 def delete_secret(secret_id):
     try:
-        db_path = os.path.join(os.path.dirname(__file__), 'dreams.db')
+        db_path = get_db_path()
         conn = sqlite3.connect(db_path)
         c = conn.cursor()
         c.execute("DELETE FROM saved_results WHERE id = ?", (secret_id,))
@@ -211,7 +220,8 @@ app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 def search_symbol_in_db(dream_text):
     """Cherche si un mot du rêve correspond à un symbole connu dans dreams.db + extrait le verbe/contexte"""
     try:
-        conn = sqlite3.connect('dreams.db')
+        db_path = get_db_path()
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
         words = dream_text.lower().split()
