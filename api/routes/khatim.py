@@ -67,7 +67,7 @@ def get_surah_ayah(line_num):
 # ─────────────────────────────────────────────────────────────────────────────
 khatim1_bp = Blueprint('khatim1', __name__, url_prefix='/api/khatim1')
 
-@khatim1_bp.route('/', methods=['POST'])
+@khatim1_bp.route('', methods=['POST'])
 def khatim1():
     """API pour Khatim 1 : Analyse complète du Poids Mystique et de la Nature"""
     data = request.get_json(silent=True) or {}
@@ -120,7 +120,7 @@ GENERATORS = {
 def create_khatim_blueprint(khatim_id):
     blueprint = Blueprint(f'khatim{khatim_id}', __name__, url_prefix=f'/api/khatim{khatim_id}')
 
-    @blueprint.route('/', methods=['POST'])
+    @blueprint.route('', methods=['POST'])
     def khatim():
         data = request.get_json(silent=True) or {}
 
@@ -188,7 +188,7 @@ def create_special_khatim_blueprint(khatim_type):
 
     blueprint = Blueprint(khatim_type, __name__, url_prefix=f'/api/{khatim_type}')
 
-    @blueprint.route('/', methods=['POST'])
+    @blueprint.route('', methods=['POST'])
     def special_khatim():
         data = request.get_json(silent=True) or {}
         words = [data.get('mot_a', ''), data.get('mot_b', ''), data.get('mot_c', '')]
