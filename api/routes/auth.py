@@ -6,12 +6,15 @@ import os
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api')
 
-DATABASE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'instance', 'khatimmaster.db')
+DATABASE = '/tmp/khatimmaster.db' if os.environ.get('VERCEL') == '1' else os.path.join(os.path.dirname(os.path.dirname(__file__)), 'instance', 'khatimmaster.db')
 
 def get_db_connection():
     """Crée le dossier 'instance' s'il n'existe pas, puis retourne une connexion à la base de données."""
     db_dir = os.path.dirname(DATABASE)
-    os.makedirs(db_dir, exist_ok=True)  # ← ✅ LIGNE AJOUTÉE — CRÉE LE DOSSIER instance/ SI BESOIN
+    try:
+        os.makedirs(db_dir, exist_ok=True)
+    except OSError:
+        pass # Ignorer sur Vercel (read-only)
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn

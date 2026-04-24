@@ -693,9 +693,12 @@ def recettes_mystiques():
     video_folder = os.path.join(app.static_folder, 'uploadVIDEO')
     articles_folder = os.path.join(app.static_folder, 'articles')
 
-    os.makedirs(pdf_folder, exist_ok=True)
-    os.makedirs(video_folder, exist_ok=True)
-    os.makedirs(articles_folder, exist_ok=True)
+    try:
+        os.makedirs(pdf_folder, exist_ok=True)
+        os.makedirs(video_folder, exist_ok=True)
+        os.makedirs(articles_folder, exist_ok=True)
+    except OSError:
+        pass # Ignorer sur Vercel (read-only)
 
     articles = []
     if os.path.exists(articles_folder):
