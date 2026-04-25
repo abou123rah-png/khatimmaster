@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Zap, Droplets, Wind, Mountain, RotateCcw, Save, Sparkles } from 'lucide-react';
+import { Heart, Zap, Droplets, Wind, Mountain, RotateCcw, Save, Sparkles, Keyboard } from 'lucide-react';
+import ArabicKeyboard from '@/components/ArabicKeyboard';
+
 
 const ARABIC_NUMS: Record<string, string> = { '0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩' };
 const toAr = (n: number) => String(n).split('').map(d => ARABIC_NUMS[d]??d).join('');
@@ -20,6 +22,9 @@ export default function CompatibilitePage() {
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [showKeyboard, setShowKeyboard] = useState(false);
+  const [activeField, setActiveField] = useState<'name1' | 'name2' | null>(null);
+
 
   const abjadMap: Record<string, number> = {
     'ا':1,'ب':2,'ج':3,'د':4,'ه':5,'و':6,'ز':7,'ح':8,'ط':9,
@@ -127,18 +132,31 @@ export default function CompatibilitePage() {
         {/* Input Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {[
-            { label: 'Premier Être', val: name1, set: setName1, placeholder: 'الاسم الأول', colorClass: 'focus:border-red-500/40 focus:ring-red-500/10' },
-            { label: 'Deuxième Être', val: name2, set: setName2, placeholder: 'الاسم الثاني', colorClass: 'focus:border-pink-500/40 focus:ring-pink-500/10' },
+            { label: 'Premier Être', val: name1, set: setName1, id: 'name1', placeholder: 'الاسم الأول', colorClass: 'focus:border-red-500/40 focus:ring-red-500/10' },
+            { label: 'Deuxième Être', val: name2, set: setName2, id: 'name2', placeholder: 'الاسم الثاني', colorClass: 'focus:border-pink-500/40 focus:ring-pink-500/10' },
           ].map((field, i) => (
             <div key={i} className="space-y-3">
               <label className="text-[10px] font-black text-amber-500/60 uppercase tracking-[0.3em]">{field.label}</label>
-              <input
-                type="text" value={field.val} onChange={e => field.set(e.target.value)} dir="rtl"
-                className={`w-full bg-white/5 border-2 border-white/5 ${field.colorClass} rounded-[2rem] p-6 text-4xl font-amiri text-center text-white focus:outline-none transition-all shadow-inner`}
-                placeholder={field.placeholder}
-              />
+              <div className="relative">
+                <input
+                  type="text" value={field.val} onChange={e => field.set(e.target.value)} dir="rtl"
+                  onFocus={() => setActiveField(field.id as 'name1' | 'name2')}
+                  className={`w-full bg-white/5 border-2 border-white/5 ${field.colorClass} rounded-[2rem] p-6 text-4xl font-amiri text-center text-white focus:outline-none transition-all shadow-inner pr-16`}
+                  placeholder={field.placeholder}
+                />
+                <button
+                  onClick={() => {
+                    setActiveField(field.id as 'name1' | 'name2');
+                    setShowKeyboard(true);
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-amber-500 hover:text-black transition-all group"
+                >
+                  <Keyboard className="w-5 h-5 text-neutral-500 group-hover:text-black" />
+                </button>
+              </div>
             </div>
           ))}
+
         </div>
 
         <div className="flex justify-center gap-4 mb-20">
@@ -234,7 +252,23 @@ export default function CompatibilitePage() {
             </motion.section>
           )}
         </AnimatePresence>
-      </div>
+      <ArabicKeyboard
+        isOpen={showKeyboard}
+        onClose={() => setShowKeyboard(false)}
+        onInput={(char) => {
+          if (activeField === 'name1') setName1(prev => prev + char);
+          if (activeField === 'name2') setName2(prev => prev + char);
+        }}
+        onBackspace={() => {
+          if (activeField === 'name1') setName1(prev => prev.slice(0, -1));
+          if (activeField === 'name2') setName2(prev => prev.slice(0, -1));
+        }}
+        onClear={() => {
+          if (activeField === 'name1') setName1('');
+          if (activeField === 'name2') setName2('');
+        }}
+      />
     </div>
   );
 }
+

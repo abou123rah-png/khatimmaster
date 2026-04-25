@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Sparkles, LayoutGrid } from 'lucide-react';
+import { ArrowLeft, Sparkles, LayoutGrid, Keyboard } from 'lucide-react';
+import ArabicKeyboard from '@/components/ArabicKeyboard';
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Cell = { type: "number" | "arabic"; value: number | string };
@@ -22,6 +24,9 @@ export default function HadakounPage() {
   const [tableau, setTableau] = useState<Tableau | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showKeyboard, setShowKeyboard] = useState(false);
+  const [activeField, setActiveField] = useState<string | null>(null);
+
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,14 +82,28 @@ export default function HadakounPage() {
                   <label className="text-neutral-300 font-medium block capitalize">
                     {key === 'mot_a' ? 'Premier Mot' : key === 'mot_b' ? 'Deuxième Mot' : 'Troisième Mot'}
                   </label>
-                  <input 
-                    type="text" 
-                    dir="rtl"
-                    className="w-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white text-2xl p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all text-right font-arial"
-                    placeholder="...اكتب هنا"
-                    value={(mots as any)[key]}
-                    onChange={(e) => setMots({ ...mots, [key]: e.target.value })}
-                  />
+                  <div className="relative">
+                    <input 
+                      type="text" 
+                      dir="rtl"
+                      onFocus={() => setActiveField(key)}
+                      className="w-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white text-2xl p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all text-right font-arial pr-14"
+                      placeholder="...اكتب هنا"
+                      value={(mots as any)[key]}
+                      onChange={(e) => setMots({ ...mots, [key]: e.target.value })}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveField(key);
+                        setShowKeyboard(true);
+                      }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-[var(--primary)] hover:text-black transition-all group"
+                    >
+                      <Keyboard className="w-5 h-5 text-neutral-500 group-hover:text-black" />
+                    </button>
+                  </div>
+
                 </div>
               ))}
               
@@ -139,6 +158,20 @@ export default function HadakounPage() {
           )}
         </div>
       </div>
+      <ArabicKeyboard
+        isOpen={showKeyboard}
+        onClose={() => setShowKeyboard(false)}
+        onInput={(char) => {
+          if (activeField) setMots(prev => ({ ...prev, [activeField]: (prev as any)[activeField] + char }));
+        }}
+        onBackspace={() => {
+          if (activeField) setMots(prev => ({ ...prev, [activeField]: (prev as any)[activeField].slice(0, -1) }));
+        }}
+        onClear={() => {
+          if (activeField) setMots(prev => ({ ...prev, [activeField]: '' }));
+        }}
+      />
     </div>
   );
 }
+

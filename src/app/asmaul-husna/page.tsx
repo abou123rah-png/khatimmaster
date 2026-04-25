@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Sparkles, Save, Hash } from 'lucide-react';
+import { Search, Sparkles, Save, Hash, Keyboard } from 'lucide-react';
+import ArabicKeyboard from '@/components/ArabicKeyboard';
+
 
 interface AsmaName {
   id: number;
@@ -25,6 +27,8 @@ export default function AsmaulHusnaPage() {
   const [calculating, setCalculating] = useState(false);
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [showKeyboard, setShowKeyboard] = useState(false);
+
 
   const abjadMap: Record<string, number> = {
     'ا':1,'ب':2,'ج':3,'د':4,'ه':5,'و':6,'ز':7,'ح':8,'ط':9,
@@ -142,15 +146,25 @@ export default function AsmaulHusnaPage() {
                 <label className="text-[10px] font-black text-amber-500/60 uppercase tracking-[0.3em] mb-3 block">
                   Votre Nom en Arabe
                 </label>
-                <input
-                  type="text"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleMatch()}
-                  dir="rtl"
-                  placeholder="محمد, أحمد, فاطمة..."
-                  className="w-full bg-black/40 border-2 border-white/5 focus:border-amber-500/40 rounded-[1.5rem] p-6 text-4xl font-amiri text-center text-white focus:outline-none transition-all shadow-inner"
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleMatch()}
+                    dir="rtl"
+                    placeholder="محمد, أحمد, فاطمة..."
+                    className="w-full bg-black/40 border-2 border-white/5 focus:border-amber-500/40 rounded-[1.5rem] p-6 text-4xl font-amiri text-center text-white focus:outline-none transition-all shadow-inner pr-16"
+                  />
+                  <button
+                    onClick={() => setShowKeyboard(!showKeyboard)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-amber-500 hover:text-black transition-all group"
+                    title="Ouvrir le clavier arabe"
+                  >
+                    <Keyboard className="w-5 h-5 text-neutral-500 group-hover:text-black transition-colors" />
+                  </button>
+                </div>
+
               </div>
               <button
                 onClick={handleMatch}
@@ -286,7 +300,14 @@ export default function AsmaulHusnaPage() {
             })}
           </div>
         )}
-      </div>
+      <ArabicKeyboard
+        isOpen={showKeyboard}
+        onClose={() => setShowKeyboard(false)}
+        onInput={(char) => setUserName(prev => prev + char)}
+        onBackspace={() => setUserName(prev => prev.slice(0, -1))}
+        onClear={() => setUserName('')}
+      />
     </div>
   );
 }
+
