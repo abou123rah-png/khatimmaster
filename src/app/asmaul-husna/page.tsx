@@ -307,7 +307,9 @@ export default function AsmaulHusnaPage() {
         onBackspace={() => setUserName(prev => prev.slice(0, -1))}
         onClear={() => setUserName('')}
       />
+      </div>
     </div>
   );
 }
+
 

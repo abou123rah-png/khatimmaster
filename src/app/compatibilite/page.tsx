@@ -268,7 +268,9 @@ export default function CompatibilitePage() {
           if (activeField === 'name2') setName2('');
         }}
       />
+      </div>
     </div>
   );
 }
+
 
