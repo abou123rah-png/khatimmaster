@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Delete, X, Hash, Languages, Sparkles, ChevronUp, ChevronDown } from 'lucide-react';
+import { useSound } from '@/hooks/useSound';
+
 
 interface ArabicKeyboardProps {
   isOpen: boolean;
@@ -40,6 +42,8 @@ export default function ArabicKeyboard({
 }: ArabicKeyboardProps) {
   const [layout, setLayout] = useState<'main' | 'shift' | 'nums'>('main');
   const [isMinimized, setIsMinimized] = useState(false);
+  const { playSound } = useSound();
+
 
   // Prevent background scroll when keyboard is open
   useEffect(() => {
@@ -100,8 +104,12 @@ export default function ArabicKeyboard({
                     key={key}
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(212, 175, 55, 0.15)' }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => onInput(key)}
+                    onClick={() => {
+                      playSound('click');
+                      onInput(key);
+                    }}
                     className="flex-1 max-w-[64px] aspect-square min-w-[32px] md:h-14 flex items-center justify-center bg-white/5 border border-white/10 rounded-lg md:rounded-xl text-xl md:text-3xl font-amiri text-neutral-200 hover:border-amber-500/50 hover:text-amber-500 transition-all shadow-lg active:bg-amber-500/20"
+
                   >
                     {key}
                   </motion.button>
@@ -112,7 +120,11 @@ export default function ArabicKeyboard({
             {/* Bottom Controls Row */}
             <div className="flex justify-center gap-2 pt-2 border-t border-white/5 mt-4">
               <button
-                onClick={() => setLayout(layout === 'main' ? 'shift' : 'main')}
+                onClick={() => {
+                  playSound('click');
+                  setLayout(layout === 'main' ? 'shift' : 'main');
+                }}
+
                 className={`px-4 md:px-8 py-3 rounded-xl border font-black text-[10px] uppercase tracking-widest transition-all flex items-center gap-2 ${
                   layout === 'shift' ? 'bg-amber-500 text-black border-amber-500' : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white'
                 }`}
@@ -121,7 +133,11 @@ export default function ArabicKeyboard({
               </button>
 
               <button
-                onClick={() => setLayout(layout === 'nums' ? 'main' : 'nums')}
+                onClick={() => {
+                  playSound('click');
+                  setLayout(layout === 'nums' ? 'main' : 'nums');
+                }}
+
                 className={`px-4 md:px-6 py-3 rounded-xl border font-black text-[10px] uppercase tracking-widest transition-all ${
                   layout === 'nums' ? 'bg-amber-500 text-black border-amber-500' : 'bg-white/5 border-white/10 text-neutral-400 hover:text-white'
                 }`}
@@ -131,14 +147,22 @@ export default function ArabicKeyboard({
 
               <motion.button 
                 whileTap={{ scale: 0.98 }} 
-                onClick={() => onInput(' ')}
+                onClick={() => {
+                  playSound('click');
+                  onInput(' ');
+                }}
+
                 className="flex-[2] py-3 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/10 transition-all text-[10px] font-black tracking-[0.3em] text-neutral-500 uppercase"
               >
                 Espace
               </motion.button>
 
               <button 
-                onClick={onBackspace}
+                onClick={() => {
+                  playSound('click');
+                  onBackspace();
+                }}
+
                 className="px-4 md:px-6 py-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl flex items-center justify-center hover:bg-red-500/20 transition-all"
               >
                 <Delete className="w-5 h-5" />

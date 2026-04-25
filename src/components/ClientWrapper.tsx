@@ -4,8 +4,10 @@ import Link from 'next/link';
 import { Moon, Menu, X, UserPlus, User, LogOut, Sparkles, Play, Mail, Fingerprint } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
+import SpiritualAudioPlayer from '@/components/SpiritualAudioPlayer';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<{ logged_in: boolean; username?: string } | null>(null);
 
@@ -168,7 +170,9 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         
         <div className="flex-1 flex flex-col xl:pl-20 overflow-hidden relative">
           {children}
+          <SpiritualAudioPlayer />
         </div>
+
         
         <footer className="border-t border-[var(--card-border)] bg-[#050709] pt-20 pb-10 xl:pl-20">
           <div className="container mx-auto px-4 md:px-8">

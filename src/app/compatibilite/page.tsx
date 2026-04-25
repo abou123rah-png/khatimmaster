@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Zap, Droplets, Wind, Mountain, RotateCcw, Save, Sparkles, Keyboard } from 'lucide-react';
+import { Heart, Zap, Droplets, Wind, Mountain, RotateCcw, Save, Sparkles, Keyboard, Star } from 'lucide-react';
 import ArabicKeyboard from '@/components/ArabicKeyboard';
+import { useSound } from '@/hooks/useSound';
+
 
 
 const ARABIC_NUMS: Record<string, string> = { '0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩' };
@@ -24,6 +26,8 @@ export default function CompatibilitePage() {
   const [saved, setSaved] = useState(false);
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [activeField, setActiveField] = useState<'name1' | 'name2' | null>(null);
+  const { playSound } = useSound();
+
 
 
   const abjadMap: Record<string, number> = {
@@ -66,8 +70,10 @@ export default function CompatibilitePage() {
 
   const calculateHarmony = () => {
     if (!name1.trim() || !name2.trim()) return;
+    playSound('woosh');
     setLoading(true);
     setSaved(false);
+
 
     setTimeout(() => {
       const pm1 = getPM(name1), pm2 = getPM(name2);
@@ -86,7 +92,9 @@ export default function CompatibilitePage() {
 
       setResult({ pm1, pm2, el1, el2, score: Math.min(Math.max(score, 10), 99), description: getHarmonyDesc(score) });
       setLoading(false);
+      playSound('magic');
     }, 1800);
+
   };
 
   const saveResult = async () => {

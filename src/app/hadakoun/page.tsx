@@ -2,9 +2,12 @@
 
 import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Sparkles, LayoutGrid, Keyboard, Download } from 'lucide-react';
+import { ArrowLeft, Sparkles, LayoutGrid, Keyboard, Download, Star } from 'lucide-react';
 import { toPng } from 'html-to-image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSound } from '@/hooks/useSound';
 import ArabicKeyboard from '@/components/ArabicKeyboard';
+
 
 
 
@@ -29,7 +32,10 @@ export default function HadakounPage() {
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [activeField, setActiveField] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [showHijjab, setShowHijjab] = useState(false);
   const khatimRef = useRef<HTMLDivElement>(null);
+  const { playSound } = useSound();
+
 
 
 
@@ -37,7 +43,9 @@ export default function HadakounPage() {
     e.preventDefault();
     if (!mots.mot_a || !mots.mot_b || !mots.mot_c) return;
 
+    playSound('woosh');
     setLoading(true);
+
     setError('');
     setTableau(null);
 
@@ -52,7 +60,11 @@ export default function HadakounPage() {
       if (!res.ok) throw new Error(data.error || 'Erreur lors de la génération.');
       
       setTableau(data.tableau);
+      playSound('magic');
+      setShowHijjab(true);
+      setTimeout(() => setShowHijjab(false), 5000);
     } catch (err: any) {
+
       setError(err.message);
     } finally {
       setLoading(false);
@@ -163,8 +175,30 @@ export default function HadakounPage() {
           {loading && <div className="animate-pulse text-[var(--primary)] font-bold text-xl uppercase tracking-widest">Alchimie des lettres...</div>}
 
           {tableau && (
-            <div className="animate-in fade-in zoom-in duration-500 w-full max-w-md">
+            <div className="animate-in fade-in zoom-in duration-500 w-full max-w-md relative">
+              <AnimatePresence>
+                {showHijjab && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 1.2 }}
+                    className="absolute -top-20 left-0 right-0 z-20 flex flex-col items-center pointer-events-none"
+                  >
+                    <div className="bg-amber-500 text-black px-6 py-3 rounded-full font-black uppercase tracking-widest shadow-[0_0_40px_rgba(234,179,8,0.5)] flex items-center gap-3">
+                      <Star className="w-5 h-5 animate-pulse" />
+                      Vœu de Hijjab Réalisé
+                      <Star className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <motion.div
+                      animate={{ opacity: [0, 1, 0], scale: [1, 2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 bg-amber-500/20 blur-3xl -z-10 rounded-full"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <div className="flex justify-end mb-4">
+
                 <button
                   onClick={handleDownload}
                   disabled={exporting}

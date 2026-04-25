@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Sparkles, Save, Hash, Keyboard } from 'lucide-react';
+import { Search, Sparkles, Save, Hash, Keyboard, Star } from 'lucide-react';
 import ArabicKeyboard from '@/components/ArabicKeyboard';
+import { useSound } from '@/hooks/useSound';
+
 
 
 interface AsmaName {
@@ -28,6 +30,8 @@ export default function AsmaulHusnaPage() {
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<number | null>(null);
   const [showKeyboard, setShowKeyboard] = useState(false);
+  const { playSound } = useSound();
+
 
 
   const abjadMap: Record<string, number> = {
@@ -54,6 +58,7 @@ export default function AsmaulHusnaPage() {
 
   const handleMatch = () => {
     if (!userName.trim()) return;
+    playSound('woosh');
     setCalculating(true);
     setTimeout(() => {
       const pm = calculatePM(userName);
@@ -61,7 +66,9 @@ export default function AsmaulHusnaPage() {
       const matches = names.filter(n => n.abjad === pm || pm % n.abjad === 0 || n.abjad % pm === 0);
       setMatchingNames(matches.sort((a, b) => a.abjad === pm ? -1 : b.abjad === pm ? 1 : a.abjad - b.abjad));
       setCalculating(false);
+      playSound('magic');
     }, 1500);
+
   };
 
   const saveSecret = async (name: AsmaName) => {
