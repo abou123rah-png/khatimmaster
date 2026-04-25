@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX, Music, Play, Pause, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const QURAN_URL = 'https://ia801501.us.archive.org/20/items/ZikrFayda/Zikr_Fayda_Tidjania.mp3'; // Zikr Fayda Tijania - Rhythmic Salawat with Ameen
+const QURAN_URL = 'https://archive.org/download/Mamserigne-fr_Archive_2007_selection/AA_Mbaye-Saloul_Alal_Anta_Nour.mp3'; // Abdou Aziz Mbaye - Rhythmic Salawat (Senegal)
+
 
 
 export default function SpiritualAudioPlayer() {

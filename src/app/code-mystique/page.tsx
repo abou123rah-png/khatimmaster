@@ -105,11 +105,12 @@ export default function CodeMystiquePage() {
                   />
                   <button
                     onClick={() => setShowKeyboard(!showKeyboard)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-amber-500 hover:text-black transition-all group"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500 hover:text-black transition-all group shadow-[0_0_15px_rgba(234,179,8,0.1)]"
                     title="Ouvrir le clavier arabe"
                   >
-                    <Keyboard className="w-5 h-5 text-neutral-500 group-hover:text-black transition-colors" />
+                    <Keyboard className="w-5 h-5 text-amber-500 group-hover:text-black transition-colors" />
                   </button>
+
                 </div>
 
             </div>
