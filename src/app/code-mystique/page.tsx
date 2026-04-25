@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Hash, Search, Sparkles, BookOpen, Star } from 'lucide-react';
+import { Hash, Search, Sparkles, BookOpen, Star, Keyboard } from 'lucide-react';
+import ArabicKeyboard from '@/components/ArabicKeyboard';
+import { useSound } from '@/hooks/useSound';
+
 
 interface SearchResult {
   sourate: number;
@@ -22,10 +25,15 @@ export default function CodeMystiquePage() {
   const [count, setCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [showKeyboard, setShowKeyboard] = useState(false);
+  const { playSound } = useSound();
+
 
   const searchQuran = async () => {
     if (!query.trim()) return;
+    playSound('woosh');
     setLoading(true);
+
     setErrorMsg(null);
     setResults([]);
     setCount(null);
@@ -39,7 +47,9 @@ export default function CodeMystiquePage() {
       const data = await response.json();
       setResults(data.results || []);
       setCount(data.count || 0);
+      playSound('magic');
     } catch (error: any) {
+
       setErrorMsg(error.message || 'Connexion impossible au serveur mystique.');
     } finally {
       setLoading(false);
@@ -83,15 +93,25 @@ export default function CodeMystiquePage() {
               <label className="block text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
                 <BookOpen className="w-4 h-4" /> Mot ou expression à rechercher
               </label>
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && searchQuran()}
-                dir="rtl"
-                className="w-full bg-black/40 border-2 border-white/5 focus:border-amber-500/40 rounded-[1.5rem] p-6 text-3xl md:text-4xl font-amiri text-white focus:outline-none transition-all shadow-inner placeholder:text-neutral-700"
-                placeholder="أدخل الكلمة هنا..."
-              />
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && searchQuran()}
+                    dir="rtl"
+                    className="w-full bg-black/40 border-2 border-white/5 focus:border-amber-500/40 rounded-[1.5rem] p-6 text-3xl md:text-4xl font-amiri text-white focus:outline-none transition-all shadow-inner placeholder:text-neutral-700 pr-16"
+                    placeholder="أدخل الكلمة هنا..."
+                  />
+                  <button
+                    onClick={() => setShowKeyboard(!showKeyboard)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-amber-500 hover:text-black transition-all group"
+                    title="Ouvrir le clavier arabe"
+                  >
+                    <Keyboard className="w-5 h-5 text-neutral-500 group-hover:text-black transition-colors" />
+                  </button>
+                </div>
+
             </div>
 
             <button
@@ -176,6 +196,16 @@ export default function CodeMystiquePage() {
           )}
         </AnimatePresence>
       </div>
+
+      <ArabicKeyboard
+        isOpen={showKeyboard}
+        onClose={() => setShowKeyboard(false)}
+        onInput={(char) => setQuery(prev => prev + char)}
+        onBackspace={() => setQuery(prev => prev.slice(0, -1))}
+        onClear={() => setQuery('')}
+        title="Clavier du Code Mystique"
+      />
     </div>
+
   );
 }

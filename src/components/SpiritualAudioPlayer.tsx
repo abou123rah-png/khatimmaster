@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX, Music, Play, Pause, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const QURAN_URL = 'https://server8.mp3quran.net/afs/055.mp3'; // Surah Ar-Rahman (The Most Merciful)
+const QURAN_URL = 'https://ia801501.us.archive.org/20/items/ZikrFayda/Zikr_Fayda_Tidjania.mp3'; // Zikr Fayda Tijania - Rhythmic Salawat with Ameen
+
 
 export default function SpiritualAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -56,8 +57,9 @@ export default function SpiritualAudioPlayer() {
             className="bg-amber-500 text-black px-4 py-2 rounded-2xl text-xs font-black uppercase tracking-widest shadow-[0_10px_30px_rgba(234,179,8,0.3)] flex items-center gap-2 pointer-events-none"
           >
             <Sparkles className="w-3 h-3" />
-            Écoutez la Paix Sacrée
+            Salawat & Zikr Sacré
           </motion.div>
+
         )}
       </AnimatePresence>
 
