@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Sparkles, LayoutGrid, Keyboard } from 'lucide-react';
+import { ArrowLeft, Sparkles, LayoutGrid, Keyboard, Download } from 'lucide-react';
+import { toPng } from 'html-to-image';
 import ArabicKeyboard from '@/components/ArabicKeyboard';
+
 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -26,6 +28,9 @@ export default function HadakounPage() {
   const [error, setError] = useState('');
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [activeField, setActiveField] = useState<string | null>(null);
+  const [exporting, setExporting] = useState(false);
+  const khatimRef = useRef<HTMLDivElement>(null);
+
 
 
   const handleGenerate = async (e: React.FormEvent) => {
@@ -53,6 +58,32 @@ export default function HadakounPage() {
       setLoading(false);
     }
   };
+
+  const handleDownload = async () => {
+    if (!khatimRef.current) return;
+    setExporting(true);
+    try {
+      const dataUrl = await toPng(khatimRef.current, {
+        cacheBust: true,
+        backgroundColor: '#050709',
+        style: {
+          padding: '40px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
+      });
+      const link = document.createElement('a');
+      link.download = `Khatim-Hadakoun.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error('Erreur export:', err);
+    } finally {
+      setExporting(false);
+    }
+  };
+
 
   return (
     <div className="flex flex-col items-center py-16 px-4 sm:px-8 max-w-5xl mx-auto w-full">
@@ -133,7 +164,18 @@ export default function HadakounPage() {
 
           {tableau && (
             <div className="animate-in fade-in zoom-in duration-500 w-full max-w-md">
-              <div className="grid grid-cols-3 gap-2 bg-[rgba(212,175,55,0.2)] p-2 rounded-2xl border border-[rgba(212,175,55,0.3)] shadow-[0_0_50px_rgba(212,175,55,0.15)]">
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={handleDownload}
+                  disabled={exporting}
+                  className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-2 rounded-full text-xs font-bold transition-all disabled:opacity-50"
+                >
+                  {exporting ? <span className="animate-spin text-[var(--primary)]">◌</span> : <Download className="w-4 h-4 text-[var(--primary)]" />}
+                  {exporting ? 'Exportation...' : 'Télécharger Image'}
+                </button>
+              </div>
+              <div ref={khatimRef} className="grid grid-cols-3 gap-2 bg-[rgba(212,175,55,0.2)] p-4 rounded-2xl border border-[rgba(212,175,55,0.3)] shadow-[0_0_50px_rgba(212,175,55,0.15)]">
+
                 {tableau.flat().map((cell, i) => (
                    <div 
                     key={i} 
