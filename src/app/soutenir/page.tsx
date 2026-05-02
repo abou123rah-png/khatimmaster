@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { Heart, Gift, Share2, Users, BookOpen, Mail, Sparkles } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import MysticalShare from '@/components/MysticalShare';
 
 export default function SoutenirPage() {
   const [donateAmount, setDonateAmount] = useState('10');
   const [shared, setShared] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const paypalContainerRef = useRef<HTMLDivElement>(null);
   const isPaypalInitialized = useRef(false);
 
@@ -149,14 +151,14 @@ export default function SoutenirPage() {
                 icon: Share2, color: 'blue',
                 title: 'Partager au Maximum',
                 desc: 'Faites connaître KhatimMaster à votre entourage et sur les réseaux sociaux.',
-                action: handleShare,
+                action: () => setIsShareOpen(true),
                 label: shared ? '✓ Merci !' : 'Partager'
               },
               {
                 icon: Users, color: 'purple',
                 title: 'Inviter des Frères & Sœurs',
                 desc: 'Invitez votre cercle sur WhatsApp, Telegram ou par email.',
-                action: handleShare,
+                action: () => setIsShareOpen(true),
                 label: 'Inviter'
               },
             ].map((item, i) => {
@@ -213,6 +215,14 @@ export default function SoutenirPage() {
           </motion.div>
         </div>
       </div>
+
+      <MysticalShare 
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        title="Soutenir KhatimMaster"
+        text="Découvrez KhatimMaster, la plateforme de sciences mystiques islamiques la plus complète. Soutenez l'innovation spirituelle !"
+        url={typeof window !== 'undefined' ? window.location.origin : ''}
+      />
     </div>
   );
 }

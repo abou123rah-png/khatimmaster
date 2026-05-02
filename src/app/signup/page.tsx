@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { UserPlus, User, Mail, Lock, ArrowRight, Star, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -16,20 +16,19 @@ export default function SignupPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      const { data, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            username: formData.username,
+          }
+        }
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Une erreur est survenue");
-      }
+      if (authError) throw authError;
 
       setSuccess(true);
-      // Petite pause pour montrer le message de succès avant redirection
       setTimeout(() => {
         window.location.href = "/login";
       }, 2000);

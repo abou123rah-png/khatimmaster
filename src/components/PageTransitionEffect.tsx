@@ -1,64 +1,109 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
-export default function PageTransitionEffect() {
+const ARABIC_LETTERS = ['ا', 'ب', 'ج', 'د', 'ه', 'و', 'ز', 'ح', 'ط', 'ي', 'ك', 'ل', 'م', 'ن', 'س', 'ع', 'ف', 'ص', 'ق', 'ر', 'ش', 'ت', 'ث', 'خ', 'ذ', 'ض', 'ظ', 'غ'];
+
+export default function PageTransitionEffect({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [show, setShow] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
-    // Déclenche l'effet mystique à chaque changement de route
-    setShow(true);
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 1500); // L'effet dure 1.5s pour bien s'estomper
-
+    setShowOverlay(true);
+    const timer = setTimeout(() => setShowOverlay(false), 1800);
     return () => clearTimeout(timer);
   }, [pathname]);
 
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          key="mystic-transition"
-          className="fixed inset-0 z-[200] pointer-events-none flex items-center justify-center overflow-hidden"
-        >
-          {/* Flash type "Éclair doré" en fond */}
+    <>
+      <AnimatePresence>
+        {showOverlay && (
           <motion.div
-            initial={{ opacity: 0.8, scale: 0.8 }}
-            animate={{ opacity: 0, scale: 1.5 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent mix-blend-screen"
-          />
-          
-          {/* Géométrie sacrée filigrane */}
-          <motion.div
-            initial={{ scale: 0.8, rotate: -45, opacity: 0 }}
-            animate={{ scale: 1.1, rotate: 0, opacity: [0, 1, 0] }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="relative flex items-center justify-center"
+            key="mystical-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center overflow-hidden"
           >
-            {/* Rub El Hizb / Etoile Islamique à 8 branches */}
-            <svg viewBox="0 0 100 100" className="w-[70vw] h-[70vw] max-w-[500px] max-h-[500px] text-amber-500/[0.03] drop-shadow-[0_0_30px_rgba(245,158,11,0.2)]">
-               <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" strokeWidth="2" />
-               <rect x="25" y="25" width="50" height="50" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(45 50 50)" />
-               <circle cx="50" cy="50" r="10" fill="currentColor" className="opacity-50" />
-            </svg>
+            {/* Éclairs Mystiques (Lightning) */}
+            <motion.div
+              animate={{ opacity: [0, 0.8, 0, 1, 0, 0.5, 0] }}
+              transition={{ duration: 0.6, times: [0, 0.1, 0.15, 0.2, 0.3, 0.4, 1] }}
+              className="absolute inset-0 bg-white"
+            />
+            
+            <motion.div
+              animate={{ opacity: [0, 0.4, 0, 0.6, 0] }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="absolute inset-0 bg-amber-500/20"
+            />
 
-            {/* Bismillah en calligraphie luminescente */}
-            <motion.div 
-               className="absolute text-5xl md:text-8xl text-amber-500/20 font-arabic tracking-widest drop-shadow-[0_0_40px_rgba(245,158,11,0.5)]"
-               initial={{ opacity: 0, filter: 'blur(20px)', scale: 0.9 }}
-               animate={{ opacity: [0, 0.5, 0], filter: ['blur(20px)', 'blur(0px)', 'blur(10px)'], scale: [0.9, 1, 1.1] }}
-               transition={{ duration: 1.5, ease: "easeInOut" }}
+            {/* Floating Arabic Letters (Asrar) */}
+            {Array.from({ length: 24 }).map((_, i) => (
+              <motion.span
+                key={i}
+                initial={{ 
+                  opacity: 0, 
+                  x: Math.random() * 1200 - 600, 
+                  y: Math.random() * 1000 - 500,
+                  scale: 0.5,
+                  rotate: Math.random() * 360
+                }}
+                animate={{ 
+                  opacity: [0, 0.6, 0], 
+                  scale: [0.5, 2.5, 0.5],
+                  y: (Math.random() * -600) - 200,
+                  rotate: Math.random() * 720
+                }}
+                transition={{ duration: 1.6, delay: Math.random() * 0.4, ease: "easeOut" }}
+                className="absolute text-amber-500/30 font-arabic text-7xl select-none filter blur-[1px]"
+              >
+                {ARABIC_LETTERS[Math.floor(Math.random() * ARABIC_LETTERS.length)]}
+              </motion.span>
+            ))}
+
+            {/* Signature Centrale Flottante */}
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0, filter: "blur(10px)" }}
+              animate={{ scale: [0.8, 1.1, 1], opacity: [0, 0.4, 0], filter: ["blur(10px)", "blur(0px)", "blur(20px)"] }}
+              transition={{ duration: 1.8, ease: "easeInOut" }}
+              className="relative"
             >
-               بسم الله الرحمن الرحيم
+              <div className="text-amber-500/40 text-[12vw] font-black font-amiri italic tracking-[0.5em] select-none text-center">
+                السر العظيم
+              </div>
+              <motion.div 
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+                className="absolute inset-0 bg-amber-200 blur-3xl opacity-20"
+              />
             </motion.div>
+
+            {/* Cadre de Lumière Sacré */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: [0, 0.3, 0], scale: [1.1, 1, 0.9] }}
+              transition={{ duration: 1.5 }}
+              className="absolute inset-8 border-[1px] border-amber-500/40 rounded-[4rem] shadow-[inset_0_0_100px_rgba(245,158,11,0.1)]"
+            />
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex-1 flex flex-col"
+        >
+          {children}
         </motion.div>
-      )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 }

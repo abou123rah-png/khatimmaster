@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, User, Clock, Share2, Sparkles, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import MysticalShare from '@/components/MysticalShare';
 
 interface Article {
   title: string;
@@ -20,6 +21,7 @@ export default function ArticleDetailPage() {
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   useEffect(() => {
     if (!params.slug) return;
@@ -141,18 +143,7 @@ export default function ArticleDetailPage() {
             
             <div className="flex items-center gap-4">
               <button 
-                onClick={() => {
-                  const shareData = {
-                    title: article.title + " - KhatimMaster",
-                    text: "Découvrez cet article mystique sur KhatimMaster.",
-                    url: window.location.href
-                  };
-                  if (navigator.share) {
-                    navigator.share(shareData);
-                  } else {
-                    window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
-                  }
-                }}
+                onClick={() => setIsShareOpen(true)}
                 className="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-6 py-3 rounded-2xl text-white font-bold transition-all border border-white/10"
               >
                 <Share2 className="w-4 h-4" /> Partager
@@ -183,6 +174,16 @@ export default function ArticleDetailPage() {
           </Link>
         </div>
       </div>
+
+      {article && (
+        <MysticalShare 
+          isOpen={isShareOpen}
+          onClose={() => setIsShareOpen(false)}
+          title={article.title + " - KhatimMaster"}
+          text={`Découvrez cet article mystique "${article.title}" sur KhatimMaster.`}
+          url={typeof window !== 'undefined' ? window.location.href : ''}
+        />
+      )}
 
       <style jsx global>{`
         .markdown-content h1 { font-size: 2.5rem; font-weight: 800; color: white; margin-bottom: 2rem; border-bottom: 2px solid var(--primary); padding-bottom: 1rem; }

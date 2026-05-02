@@ -70,6 +70,13 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  manifest: '/manifest.json',
+  themeColor: '#050709',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'KhatimMaster',
+  },
 };
 
 export default function RootLayout({

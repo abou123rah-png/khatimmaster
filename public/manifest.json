@@ -1,0 +1,18 @@
+{
+  "name": "KhatimMaster Pro Max",
+  "short_name": "KhatimMaster",
+  "description": "Plateforme suprême des Sciences d'Asrar et de Mystique Islamique",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050709",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

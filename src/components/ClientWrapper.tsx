@@ -4,23 +4,62 @@ import Link from 'next/link';
 import { Moon, Menu, X, UserPlus, User, LogOut, Sparkles, Play, Mail, Fingerprint } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
+import BottomNav from '@/components/BottomNav';
 import SpiritualAudioPlayer from '@/components/SpiritualAudioPlayer';
 import PageTransitionEffect from '@/components/PageTransitionEffect';
+import { supabase } from '@/lib/supabase';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState<{ logged_in: boolean; username?: string } | null>(null);
+  const [user, setUser] = useState<{ logged_in: boolean; email?: string; username?: string } | null>(null);
 
   useEffect(() => {
-    fetch('/api/me')
-      .then(res => res.json())
-      .then(setUser)
-      .catch(() => setUser({ logged_in: false }));
+    // Check current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        setUser({ 
+          logged_in: true, 
+          email: session.user.email,
+          username: session.user.user_metadata?.username || session.user.email?.split('@')[0]
+        });
+      } else {
+        setUser({ logged_in: false });
+      }
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) {
+        setUser({ 
+          logged_in: true, 
+          email: session.user.email,
+          username: session.user.user_metadata?.username || session.user.email?.split('@')[0]
+        });
+      } else {
+        setUser({ logged_in: false });
+      }
+    });
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(
+          function(registration) {
+            console.log('Service Worker registration successful with scope: ', registration.scope);
+          },
+          function(err) {
+            console.log('Service Worker registration failed: ', err);
+          }
+        );
+      });
+    }
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const handleLogout = async () => {
-    await fetch('/api/logout', { method: 'POST' });
+    await supabase.auth.signOut();
     window.location.href = '/';
   };
 
@@ -31,6 +70,8 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
     { name: 'Heures', href: '/heures-sacrees' },
     { name: 'Khatims', href: '/khatims' },
     { name: 'Abjad', href: '/code-mystique' },
+    { name: 'Oracle', href: '/oracle' },
+    { name: 'Zikr d\'Or', href: '/zikr-or' },
     { name: 'Recettes', href: '/recettes-mystiques' },
     { name: 'Ramli', href: '/ramli' },
   ];
@@ -170,10 +211,13 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         </aside>
         
         <div className="flex-1 flex flex-col xl:pl-20 overflow-hidden relative">
-          <PageTransitionEffect />
-          {children}
+          <PageTransitionEffect>
+            {children}
+          </PageTransitionEffect>
           <SpiritualAudioPlayer />
         </div>
+
+        <BottomNav />
 
         
         <footer className="border-t border-[var(--card-border)] bg-[#050709] pt-20 pb-10 xl:pl-20">
@@ -316,6 +360,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
                 <h4 className="text-white font-bold uppercase tracking-widest text-xs">Savoir &amp; Études</h4>
                 <ul className="space-y-3">
                   <li><Link href="/recettes-mystiques" className="text-neutral-500 hover:text-[var(--primary)] transition-colors text-sm">Bibliothèque Mystique</Link></li>
+                  <li><Link href="/oracle" className="text-neutral-500 hover:text-[var(--primary)] transition-colors text-sm">L'Oracle Spirituel</Link></li>
                   <li><Link href="/videos" className="text-neutral-500 hover:text-[var(--primary)] transition-colors text-sm">Vidéos &amp; Tutoriels</Link></li>
                   <li><Link href="/coran" className="text-neutral-500 hover:text-[var(--primary)] transition-colors text-sm">Secrets du Coran</Link></li>
                   <li><Link href="/reve" className="text-neutral-500 hover:text-[var(--primary)] transition-colors text-sm">Interprétation des Rêves</Link></li>

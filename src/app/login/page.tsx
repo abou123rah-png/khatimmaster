@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { LogIn, User, Lock, ArrowRight, Star, AlertCircle } from "lucide-react";
+import { LogIn, Mail, Lock, ArrowRight, Star, AlertCircle } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -15,19 +15,14 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
       });
 
-      const data = await res.json();
+      if (authError) throw authError;
 
-      if (!res.ok) {
-        throw new Error(data.error || "Une erreur est survenue");
-      }
-
-      // Recharger la page pour mettre à jour l'état d'authentification dans layout.tsx
+      // Redirect to home or dashboard
       window.location.href = "/";
     } catch (err: any) {
       setError(err.message);
@@ -54,16 +49,16 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5 relative">
             <div className="space-y-2">
-              <label className="text-sm font-bold text-neutral-500 uppercase tracking-widest ml-1">Nom d'utilisateur</label>
+              <label className="text-sm font-bold text-neutral-500 uppercase tracking-widest ml-1">Email</label>
               <div className="relative group">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-[var(--primary)] transition-colors" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-[var(--primary)] transition-colors" />
                 <input
-                  type="text"
+                  type="email"
                   required
                   className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all placeholder:text-neutral-600"
-                  placeholder="Votre pseudonyme"
-                  value={formData.username}
-                  onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                  placeholder="votre@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
             </div>

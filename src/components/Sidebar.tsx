@@ -28,7 +28,8 @@ import {
   ShieldCheck,
   Coins,
   UserRoundSearch,
-  Scroll
+  Scroll,
+  Shield
 } from 'lucide-react';
 
 const sidebarLinks = [
@@ -43,8 +44,11 @@ const sidebarLinks = [
   { name: 'Ramli', href: '/ramli', icon: Star },
   { name: 'Thalsams', href: '/thalsam', icon: Wand2 },
   { name: 'Noms Divins', href: '/asmaul-husna', icon: Sparkles },
+  { name: 'Oracle', href: '/oracle', icon: Book },
   { name: 'Le Cosmos', href: '/cosmos', icon: Moon },
   { name: 'Harmonie', href: '/compatibilite', icon: Zap },
+  { name: 'Zikr d\'Or', href: '/zikr-or', icon: Scroll },
+  { name: 'Bibliothèque Thalsams', href: '/bibliotheque-thalsams', icon: Shield },
   { name: 'Zikr', href: '/zikr-personnel', icon: Key },
   { name: 'Convertisseur', href: '/convertisseur-hijri', icon: Calendar },
   { name: 'Vidéos', href: '/videos', icon: Play },

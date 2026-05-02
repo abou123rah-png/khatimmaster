@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wand2, Sparkles, Save, Info, Copy, Check, Share2, History, RotateCcw } from 'lucide-react';
+import MysticalShare from '@/components/MysticalShare';
 
 const correspondances: Record<string, number> = {
   "ا": 1, "أ": 1, "ب": 2, "ت": 400, "ث": 500, "ج": 3, "ح": 8, "خ": 600, "د": 4,
@@ -19,6 +20,7 @@ export default function ThalsamPage() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   const generateThalsam = () => {
     const pm = parseInt(pmInput);
@@ -200,18 +202,7 @@ export default function ThalsamPage() {
                             <span className="text-xs uppercase tracking-widest hidden sm:inline">Sauver</span>
                          </button>
                          <button
-                            onClick={() => {
-                              const shareData = {
-                                title: `KhatimMaster - Thalsam`,
-                                text: `J'ai généré ce puissant Thalsam (${result}) pour le PM ${pmInput} sur KhatimMaster !`,
-                                url: window.location.href
-                              };
-                              if (navigator.share) {
-                                navigator.share(shareData).catch(err => console.error('Erreur', err));
-                              } else {
-                                window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
-                              }
-                            }}
+                            onClick={() => setIsShareOpen(true)}
                             className="flex items-center justify-center gap-3 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 font-bold py-5 rounded-3xl transition-all"
                          >
                             <Share2 className="w-6 h-6" />
@@ -254,6 +245,14 @@ export default function ThalsamPage() {
           </div>
         </div>
       </div>
+
+      <MysticalShare 
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        title="Mon Thalsam - KhatimMaster"
+        text={`J'ai généré ce puissant Thalsam (${result}) pour le PM ${pmInput} sur KhatimMaster !`}
+        url={typeof window !== 'undefined' ? window.location.href : ''}
+      />
 
       <style jsx>{`
         @keyframes spin-slow {

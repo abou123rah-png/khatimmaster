@@ -6,6 +6,8 @@ def register_blueprints(app: Flask):
     """
     from .auth import auth_bp
     from .khatim import register_khatim_blueprints
+    from .oracle import oracle_bp
     
     app.register_blueprint(auth_bp)
+    app.register_blueprint(oracle_bp)
     register_khatim_blueprints(app)

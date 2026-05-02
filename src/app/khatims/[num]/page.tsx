@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, Calculator, Table as TableIcon, Star, Download, Sparkles, Share2, PenTool } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import { motion, AnimatePresence } from 'framer-motion';
+import MysticalShare from '@/components/MysticalShare';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Cell = { type: "number" | "arabic"; value: number | string };
@@ -67,6 +68,7 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
   const [loading, setLoading] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState('');
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   // Animation States
   const [isPlaying, setIsPlaying] = useState(false);
@@ -352,18 +354,7 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
                       {exporting ? 'Exportation...' : 'Télécharger Image'}
                     </button>
                     <button
-                      onClick={() => {
-                        const shareData = {
-                          title: `KhatimMaster - ${khatimInfo?.nom || name}`,
-                          text: `Découvrez ce Khatim mystique (${size}, ${planet}) avec un Poids Mystique de ${pmCible} généré sur KhatimMaster !`,
-                          url: window.location.href
-                        };
-                        if (navigator.share) {
-                          navigator.share(shareData).catch(err => console.error('Erreur de partage', err));
-                        } else {
-                          window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
-                        }
-                      }}
+                      onClick={() => setIsShareOpen(true)}
                       className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white transition-colors"
                       title="Partager"
                     >
@@ -464,6 +455,14 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
           )}
         </motion.div>
       </div>
+
+      <MysticalShare
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        title={`KhatimMaster - ${khatimInfo?.nom || name}`}
+        text={`Découvrez ce Khatim mystique (${size}, ${planet}) avec un Poids Mystique de ${pmCible} généré sur KhatimMaster !`}
+        url={typeof window !== 'undefined' ? window.location.href : ''}
+      />
     </div>
   );
 }
