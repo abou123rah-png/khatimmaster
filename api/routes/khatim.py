@@ -235,7 +235,7 @@ tools_bp = Blueprint('tools', __name__, url_prefix='/api/tools')
 
 @tools_bp.route('/search', methods=['POST'])
 def search_quran():
-    """Recherche de mots dans le texte intégral du Coran (code.txt) avec normalisation."""
+    """Recherche de mots dans le texte intégral du Coran avec normalisation."""
     data = request.get_json(silent=True) or {}
     mot_cle = data.get('query', '').strip()
     
@@ -246,33 +246,37 @@ def search_quran():
     query_clean = nettoyer_arabe(mot_cle)
     
     results = []
-    # Utiliser le static_folder configuré par Flask
-    chemin_complet = os.path.join(current_app.static_folder, "code.txt")
+    dossier_sourates = os.path.join(current_app.static_folder, "coran", "sourates")
     
-    if not os.path.exists(chemin_complet):
-        return jsonify({"error": f"Fichier Coran (code.txt) introuvable dans {chemin_complet}."}), 500
+    if not os.path.exists(dossier_sourates):
+        return jsonify({"error": f"Dossier Coran introuvable dans {dossier_sourates}."}), 500
 
+    total_occurrences = 0
     try:
-        with open(chemin_complet, "r", encoding="utf-8") as f:
-            for idx, ligne in enumerate(f, start=1):
-                if idx > 6236: break 
-                
-                ligne_clean = nettoyer_arabe(ligne)
-                if query_clean in ligne_clean:
-                    s_num, v_num = get_surah_ayah(idx)
-                    results.append({
-                        "sourate": s_num,
-                        "sourate_nom": SURAH_NAMES.get(s_num, f"Sourate {s_num}"),
-                        "verset": v_num,
-                        "texte": ligne.strip()
-                    })
-                    if len(results) >= 100: break 
+        for num in range(1, 115):
+            chemin_fichier = os.path.join(dossier_sourates, f"{num}.txt")
+            if os.path.exists(chemin_fichier):
+                with open(chemin_fichier, "r", encoding="utf-8") as f:
+                    lignes = [l.strip() for l in f if l.strip()]
+                    for idx, ligne in enumerate(lignes, start=1):
+                        ligne_clean = nettoyer_arabe(ligne)
+                        
+                        occurrences_dans_verset = ligne_clean.count(query_clean)
+                        if occurrences_dans_verset > 0:
+                            total_occurrences += occurrences_dans_verset
+                            # Add to results
+                            results.append({
+                                "sourate": num,
+                                "sourate_nom": SURAH_NAMES.get(num, f"Sourate {num}"),
+                                "verset": idx,
+                                "texte": ligne.strip()
+                            })
     except Exception as e:
         return jsonify({"error": f"Erreur lors de la lecture : {str(e)}"}), 500
                 
     return jsonify({
         "query": mot_cle,
-        "count": len(results),
+        "count": total_occurrences,
         "results": results
     })
 
