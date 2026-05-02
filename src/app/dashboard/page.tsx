@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Book, Trash2, Calendar, Tag, Shield, Search, RefreshCcw, 
   Sparkles, BookOpen, User, Flame, Wind, Droplets, Mountain, 
-  ChevronRight, Lock, Fingerprint, Star, Plus, CheckCircle2
+  ChevronRight, Lock, Fingerprint, Star, Plus, CheckCircle2, X
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { calculateSpiritualProfile, NATURES } from '@/lib/spiritual';
