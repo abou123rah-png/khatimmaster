@@ -83,6 +83,15 @@ const tools = [
     tag: "Timing"
   },
   {
+    title: "Oracle Ismou-Allah",
+    desc: "Fusionnez votre vibration avec les 99 Noms Divins.",
+    href: "/oracle-ismou-allah",
+    icon: Sparkles,
+    color: "from-amber-400 to-yellow-600",
+    tag: "Exclusif",
+    featured: true
+  },
+  {
     title: "Oracle Mystique",
     desc: "Interrogez l'invisible et recevez des guidances angéliques.",
     href: "/oracle",

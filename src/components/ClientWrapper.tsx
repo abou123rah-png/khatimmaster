@@ -64,6 +64,8 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   };
 
   const navLinks = [
+    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Ismou-Allah', href: '/oracle-ismou-allah' },
     { name: 'Soutenir', href: '/soutenir' },
     { name: 'Les Secrets', href: '/asrar' },
     { name: 'Profil', href: '/profil-spirituel' },

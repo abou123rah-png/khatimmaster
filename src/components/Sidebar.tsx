@@ -34,6 +34,8 @@ import {
 
 const sidebarLinks = [
   { name: 'Accueil', href: '/', icon: Home },
+  { name: 'Tableau de Bord', href: '/dashboard', icon: LayoutGrid },
+  { name: 'Oracle Ismou-Allah', href: '/oracle-ismou-allah', icon: Sparkles },
   { name: 'Soutenir', href: '/soutenir', icon: Heart },
   { name: 'Tracé Sacré', href: '/trace-sacre', icon: PenTool },
   { name: 'Profil Spirituel', href: '/profil-spirituel', icon: UserRoundSearch },
@@ -43,7 +45,6 @@ const sidebarLinks = [
   { name: 'Khatims', href: '/khatims', icon: Calculator },
   { name: 'Ramli', href: '/ramli', icon: Star },
   { name: 'Thalsams', href: '/thalsam', icon: Wand2 },
-  { name: 'Noms Divins', href: '/asmaul-husna', icon: Sparkles },
   { name: 'Oracle', href: '/oracle', icon: Book },
   { name: 'Le Cosmos', href: '/cosmos', icon: Moon },
   { name: 'Harmonie', href: '/compatibilite', icon: Zap },
