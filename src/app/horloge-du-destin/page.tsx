@@ -24,13 +24,76 @@ import Link from 'next/link';
 const CHALDEAN_ORDER = ['Saturne', 'Jupiter', 'Mars', 'Soleil', 'Vénus', 'Mercure', 'Lune'];
 
 const PLANETS_INFO: Record<string, any> = {
-  'Saturne': { icon: '♄', color: 'from-gray-600 to-black', desc: 'Discipline, protection, fondations, temps.', focus: 'Blindage & Patience', influence: 'Lente mais durable.' },
-  'Jupiter': { icon: '♃', color: 'from-amber-400 to-orange-600', desc: 'Expansion, richesse, justice, chance.', focus: 'Abondance & Succès', influence: 'Expansion maximale.' },
-  'Mars': { icon: '♂', color: 'from-red-600 to-rose-900', desc: 'Énergie, courage, victoire, action.', focus: 'Force & Conflits', influence: 'Action rapide.' },
-  'Soleil': { icon: '☉', color: 'from-yellow-400 to-amber-500', desc: 'Succès, autorité, vitalité, charisme.', focus: 'Honneurs & Éclat', influence: 'Lumière totale.' },
-  'Vénus': { icon: '♀', color: 'from-rose-400 to-pink-600', desc: 'Amour, beauté, harmonie, plaisirs.', focus: 'Affection & Paix', influence: 'Douceur & Union.' },
-  'Mercure': { icon: '☿', color: 'from-emerald-400 to-teal-600', desc: 'Communication, commerce, intelligence.', focus: 'Études & Business', influence: 'Fluidité mentale.' },
-  'Lune': { icon: '☽', color: 'from-slate-200 to-blue-400', desc: 'Émotions, intuition, famille, rêves.', focus: 'Rêves & Intuition', influence: 'Changement & Cycle.' },
+  'Saturne': { 
+    icon: '♄', 
+    color: 'from-gray-600 to-black', 
+    desc: 'Discipline, protection, fondations, temps.', 
+    focus: 'Blindage & Patience', 
+    influence: 'Lente mais durable.',
+    zikr: 'Ya Hayyou Ya Qayyoum',
+    number: 174,
+    benefit: 'Protection contre les obstacles et longévité.'
+  },
+  'Jupiter': { 
+    icon: '♃', 
+    color: 'from-amber-400 to-orange-600', 
+    desc: 'Expansion, richesse, justice, chance.', 
+    focus: 'Abondance & Succès', 
+    influence: 'Expansion maximale.',
+    zikr: 'Ya Wahhabou Ya Razzaqou',
+    number: 308,
+    benefit: 'Attraction de la richesse et des opportunités.'
+  },
+  'Mars': { 
+    icon: '♂', 
+    color: 'from-red-600 to-rose-900', 
+    desc: 'Énergie, courage, victoire, action.', 
+    focus: 'Force & Conflits', 
+    influence: 'Action rapide.',
+    zikr: 'Ya Qawiyyou Ya Azizou',
+    number: 116,
+    benefit: 'Victoire sur les ennemis et courage.'
+  },
+  'Soleil': { 
+    icon: '☉', 
+    color: 'from-yellow-400 to-amber-500', 
+    desc: 'Succès, autorité, vitalité, charisme.', 
+    focus: 'Honneurs & Éclat', 
+    influence: 'Lumière totale.',
+    zikr: 'Ya Hayyou Ya Latifou',
+    number: 147,
+    benefit: 'Élévation sociale et illumination spirituelle.'
+  },
+  'Vénus': { 
+    icon: '♀', 
+    color: 'from-rose-400 to-pink-600', 
+    desc: 'Amour, beauté, harmonie, plaisirs.', 
+    focus: 'Affection & Paix', 
+    influence: 'Douceur & Union.',
+    zikr: 'Ya Wadoudou Ya Jamiou',
+    number: 134,
+    benefit: 'Harmonie dans le couple et réconciliation.'
+  },
+  'Mercure': { 
+    icon: '☿', 
+    color: 'from-emerald-400 to-teal-600', 
+    desc: 'Communication, commerce, intelligence.', 
+    focus: 'Études & Business', 
+    influence: 'Fluidité mentale.',
+    zikr: 'Ya Alimou Ya Hakimou',
+    number: 228,
+    benefit: 'Réussite aux examens et aux commerces.'
+  },
+  'Lune': { 
+    icon: '☽', 
+    color: 'from-slate-200 to-blue-400', 
+    desc: 'Émotions, intuition, famille, rêves.', 
+    focus: 'Rêves & Intuition', 
+    influence: 'Changement & Cycle.',
+    zikr: 'Ya Nourou Ya Hadi',
+    number: 276,
+    benefit: 'Clarté d\'esprit et rêves prémonitoires.'
+  },
 };
 
 const DAY_START_PLANETS = [
@@ -159,6 +222,52 @@ export default function HorlogeDestinPage() {
                     {planet.icon}
                  </div>
                </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Zikr du Moment - DYNAMIQUE */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="mb-32 relative group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-blue-500/10 blur-3xl opacity-50 group-hover:opacity-100 transition-opacity" />
+          <div className="relative bg-[#0A0C10] border border-white/10 rounded-[3rem] p-8 md:p-16 overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="shrink-0">
+                <div className="relative">
+                   <div className={`w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br ${planet.color} flex items-center justify-center text-4xl md:text-5xl text-black font-black shadow-[0_0_50px_rgba(212,175,55,0.2)]`}>
+                      <Sparkles className="w-12 h-12 animate-spin-slow" />
+                   </div>
+                   <div className="absolute -bottom-2 -right-2 bg-white text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
+                      Vibration
+                   </div>
+                </div>
+              </div>
+
+              <div className="flex-1 text-center md:text-left space-y-4">
+                <h3 className="text-sm font-black text-amber-500 uppercase tracking-[0.4em]">Zikr du Moment</h3>
+                <p className="text-4xl md:text-6xl font-black text-white tracking-tight">{planet.zikr}</p>
+                <p className="text-neutral-400 text-lg md:text-xl font-medium">
+                  Réciter <span className="text-white font-black">{planet.number} fois</span> pour {planet.benefit.toLowerCase()}
+                </p>
+                <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+                   <div className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-neutral-500">
+                      Poids Mystique : {planet.number}
+                   </div>
+                   <div className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-neutral-500">
+                      Planète : {currentPlanetaryPlanet}
+                   </div>
+                </div>
+              </div>
+
+              <div className="hidden lg:block text-right">
+                 <div className="text-8xl font-black text-white/5 select-none leading-none">
+                    {planet.number}
+                 </div>
+                 <p className="text-[10px] font-black text-neutral-700 uppercase tracking-[1em] mt-2">Code Sacré</p>
+              </div>
             </div>
           </div>
         </motion.section>

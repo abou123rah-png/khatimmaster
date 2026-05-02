@@ -73,6 +73,22 @@ const tools = [
     icon: ScrollText,
     color: "from-cyan-400 to-blue-500",
     tag: "Abjad"
+  },
+  {
+    title: "Horloge du Destin",
+    desc: "Synchronisez vos rituels avec les heures planétaires sacrées.",
+    href: "/horloge-du-destin",
+    icon: Clock,
+    color: "from-amber-600 to-yellow-400",
+    tag: "Timing"
+  },
+  {
+    title: "Oracle Mystique",
+    desc: "Interrogez l'invisible et recevez des guidances angéliques.",
+    href: "/oracle",
+    icon: Eye,
+    color: "from-indigo-600 to-purple-400",
+    tag: "Voyance"
   }
 ];
 
