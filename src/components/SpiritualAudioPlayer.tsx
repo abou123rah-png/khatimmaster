@@ -1,54 +1,84 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX, Music, Play, Pause, Sparkles } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Volume2, VolumeX, Play, Pause, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import YouTube, { YouTubeProps } from 'react-youtube';
 
-const QURAN_URL = 'https://archive.org/download/Mamserigne-fr_Archive_2007_selection/AA_Mbaye-Saloul_Alal_Anta_Nour.mp3'; // Abdou Aziz Mbaye - Rhythmic Salawat (Senegal)
-
-
+// TODO: Replace with the actual video ID from KhatimMaster channel containing "Salat 'ala Nabi"
+const YOUTUBE_VIDEO_ID = 'ckhuxglkJTE'; 
 
 export default function SpiritualAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [player, setPlayer] = useState<any>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio(QURAN_URL);
-    audioRef.current.loop = true;
-    
     // Auto-hide tooltip after 10 seconds
     const timer = setTimeout(() => setShowTooltip(false), 10000);
-    return () => {
-        clearTimeout(timer);
-        if (audioRef.current) {
-            audioRef.current.pause();
-            audioRef.current = null;
-        }
-    };
+    return () => clearTimeout(timer);
   }, []);
 
+  const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+    setPlayer(event.target);
+    // Optionally set volume to a reasonable level
+    event.target.setVolume(50);
+  };
+
   const togglePlay = () => {
-    if (!audioRef.current) return;
+    if (!player) return;
     
     if (isPlaying) {
-      audioRef.current.pause();
+      player.pauseVideo();
     } else {
-      audioRef.current.play().catch(err => console.log('Audio blocked:', err));
+      player.playVideo();
     }
     setIsPlaying(!isPlaying);
     setShowTooltip(false);
   };
 
   const toggleMute = () => {
-    if (!audioRef.current) return;
-    audioRef.current.muted = !isMuted;
+    if (!player) return;
+    
+    if (isMuted) {
+      player.unMute();
+    } else {
+      player.mute();
+    }
     setIsMuted(!isMuted);
+  };
+
+  const opts: YouTubeProps['opts'] = {
+    height: '0',
+    width: '0',
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: YOUTUBE_VIDEO_ID, // required for loop to work on single videos
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0,
+      iv_load_policy: 3
+    },
   };
 
   return (
     <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
+      {/* Hidden YouTube Player */}
+      <div className="hidden pointer-events-none">
+        <YouTube 
+          videoId={YOUTUBE_VIDEO_ID} 
+          opts={opts} 
+          onReady={onPlayerReady} 
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
+      </div>
+
       <AnimatePresence>
         {showTooltip && (
           <motion.div
@@ -60,7 +90,6 @@ export default function SpiritualAudioPlayer() {
             <Sparkles className="w-3 h-3" />
             Salawat & Zikr Sacré
           </motion.div>
-
         )}
       </AnimatePresence>
 
