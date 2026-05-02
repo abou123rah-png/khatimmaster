@@ -255,6 +255,11 @@ export default function DashboardPage() {
           </div>
 
           <div className="space-y-6">
+            <Link href="/zikr" className="block bg-gradient-to-br from-emerald-500/20 to-transparent border border-emerald-500/20 rounded-[2.5rem] p-8 group hover:scale-[1.02] transition-all">
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-500">
+                  <Star className="w-6 h-6" />
+                </div>
                 <Plus className="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-xl font-black text-white mb-1">Nouveau Zikr</h3>
