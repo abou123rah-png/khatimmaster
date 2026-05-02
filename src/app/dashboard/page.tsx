@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Book, Trash2, Calendar, Tag, Shield, Search, RefreshCcw, 
   Sparkles, BookOpen, User, Flame, Wind, Droplets, Mountain, 
-  ChevronRight, Lock, Fingerprint, Star, Plus, CheckCircle2, X
+  ChevronRight, Lock, Fingerprint, Star, Plus, CheckCircle2, X,
+  Clock, Key, Wand2, Zap, ArrowRight
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { calculateSpiritualProfile, NATURES } from '@/lib/spiritual';
@@ -385,7 +386,8 @@ export default function DashboardPage() {
             </div>
           )}
         </div>
-      </div>
+      {/* End of max-w-7xl wrapper should NOT be here if we have more sections */}
+
 
       {/* Profile Update Modal */}
       <AnimatePresence>
@@ -536,7 +538,7 @@ export default function DashboardPage() {
             ))}
           </div>
         </section>
-      </div>
+
 
       {/* Profile Initialization Modal */}
       <AnimatePresence>
@@ -606,6 +608,7 @@ export default function DashboardPage() {
           </div>
         )}
       </AnimatePresence>
+    </div>
     </div>
   );
 }
