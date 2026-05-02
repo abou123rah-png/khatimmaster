@@ -158,7 +158,7 @@ export default function DashboardPage() {
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
                      <div>
                        <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                         Votre nom porte une vibration de <span className="text-amber-500 font-bold">{spiritualData.totalPm}</span>. 
+                         Votre nom porte une vibration de <span className="text-amber-500 font-bold">{spiritualData.total}</span>. 
                          Cette énergie influence votre résonance spirituelle et vos travaux mystiques.
                        </p>
                        <div className="flex gap-2">
@@ -179,7 +179,7 @@ export default function DashboardPage() {
                      <div className="bg-black/40 rounded-3xl p-6 border border-white/5">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">Poids Mystique</span>
-                          <span className="text-amber-500 font-black text-2xl">{spiritualData.totalPm}</span>
+                          <span className="text-amber-500 font-black text-2xl">{spiritualData.total}</span>
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">Indice de Nature</span>

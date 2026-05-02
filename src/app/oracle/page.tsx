@@ -247,7 +247,6 @@ export default function OraclePage() {
           </motion.div>
         )}
       </div>
-      </div>
 
       {result && (
         <MysticalShare 

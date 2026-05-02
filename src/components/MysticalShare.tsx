@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Share2, Copy, MessageCircle, Facebook, Twitter, Check } from 'lucide-react';
+import { X, Share2, Copy, MessageCircle, Link, Send, Check } from 'lucide-react';
 import { useState } from 'react';
 
 interface MysticalShareProps {
@@ -24,13 +24,13 @@ export default function MysticalShare({ isOpen, onClose, title, text, url }: Mys
     },
     {
       name: 'Facebook',
-      icon: <Facebook className="w-6 h-6" />,
+      icon: <Link className="w-6 h-6" />,
       color: 'bg-blue-700',
       action: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank')
     },
     {
       name: 'X (Twitter)',
-      icon: <Twitter className="w-6 h-6" />,
+      icon: <Send className="w-6 h-6" />,
       color: 'bg-black',
       action: () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank')
     },
@@ -100,7 +100,7 @@ export default function MysticalShare({ isOpen, onClose, title, text, url }: Mys
               ))}
             </div>
 
-            {navigator.share && (
+            {typeof navigator !== 'undefined' && !!navigator.share && (
               <button
                 onClick={handleNativeShare}
                 className="w-full mt-6 py-4 rounded-2xl bg-amber-500 text-black font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-xl shadow-amber-500/10"

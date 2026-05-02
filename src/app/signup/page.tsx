@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { UserPlus, User, Mail, Lock, ArrowRight, Star, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
