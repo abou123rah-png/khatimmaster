@@ -110,9 +110,9 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
           </div>
         </nav>
         
-        <aside className={`fixed inset-0 z-[60] xl:hidden pointer-events-none transition-all duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}>
-          <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto transition-opacity duration-500 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setIsMenuOpen(false)} />
-          <div className={`absolute top-0 right-0 w-[280px] h-full bg-[#050709] border-l border-[var(--card-border)] shadow-2xl p-6 pointer-events-auto transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <aside className={`fixed inset-0 z-[60] xl:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500" onClick={() => setIsMenuOpen(false)} />
+          <div className={`absolute top-0 right-0 w-[280px] h-full bg-[#050709] border-l border-[var(--card-border)] shadow-2xl p-6 transition-transform duration-500 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
             <div className="flex justify-end mb-8">
               <button onClick={() => setIsMenuOpen(false)} className="p-2 text-neutral-400 hover:text-white">
                 <X className="w-7 h-7" />
