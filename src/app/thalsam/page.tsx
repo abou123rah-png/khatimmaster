@@ -184,26 +184,45 @@ export default function ThalsamPage() {
                         {result}
                       </div>
 
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full mt-12">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-12">
                          <button 
                             onClick={copyToClipboard}
                             className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-5 rounded-3xl transition-all"
                          >
                             {copied ? <Check className="w-6 h-6 text-green-400" /> : <Copy className="w-6 h-6" />}
-                            <span className="text-xs uppercase tracking-widest">{copied ? 'Copié' : 'Copier'}</span>
+                            <span className="text-xs uppercase tracking-widest hidden sm:inline">{copied ? 'Copié' : 'Copier'}</span>
                          </button>
                          <button 
                             onClick={saveToSecret}
                             className="flex items-center justify-center gap-3 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-amber-500 font-bold py-5 rounded-3xl transition-all"
                          >
                             <Save className="w-6 h-6" />
-                            <span className="text-xs uppercase tracking-widest">Sauver</span>
+                            <span className="text-xs uppercase tracking-widest hidden sm:inline">Sauver</span>
+                         </button>
+                         <button
+                            onClick={() => {
+                              const shareData = {
+                                title: `KhatimMaster - Thalsam`,
+                                text: `J'ai généré ce puissant Thalsam (${result}) pour le PM ${pmInput} sur KhatimMaster !`,
+                                url: window.location.href
+                              };
+                              if (navigator.share) {
+                                navigator.share(shareData).catch(err => console.error('Erreur', err));
+                              } else {
+                                window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
+                              }
+                            }}
+                            className="flex items-center justify-center gap-3 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 text-blue-400 font-bold py-5 rounded-3xl transition-all"
+                         >
+                            <Share2 className="w-6 h-6" />
+                            <span className="text-xs uppercase tracking-widest hidden sm:inline">Partager</span>
                          </button>
                          <button 
                             onClick={() => {setResult(""); setPmInput("");}}
-                            className="col-span-2 md:col-span-1 p-5 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-500 hover:text-white rounded-3xl transition-all flex items-center justify-center"
+                            className="flex items-center justify-center gap-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 font-bold py-5 rounded-3xl transition-all"
                          >
                             <RotateCcw className="w-6 h-6" />
+                            <span className="text-xs uppercase tracking-widest hidden sm:inline">Effacer</span>
                          </button>
                       </div>
                     </motion.div>

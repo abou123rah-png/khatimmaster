@@ -351,7 +351,22 @@ export default function KhatimGeneratorPage({ params }: { params: Promise<{ num:
                       {exporting ? <span className="animate-spin text-amber-500">◌</span> : <Download className="w-4 h-4 text-amber-500" />}
                       {exporting ? 'Exportation...' : 'Télécharger Image'}
                     </button>
-                    <button className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white transition-colors">
+                    <button
+                      onClick={() => {
+                        const shareData = {
+                          title: `KhatimMaster - ${khatimInfo?.nom || name}`,
+                          text: `Découvrez ce Khatim mystique (${size}, ${planet}) avec un Poids Mystique de ${pmCible} généré sur KhatimMaster !`,
+                          url: window.location.href
+                        };
+                        if (navigator.share) {
+                          navigator.share(shareData).catch(err => console.error('Erreur de partage', err));
+                        } else {
+                          window.open(`https://wa.me/?text=${encodeURIComponent(shareData.text + ' ' + shareData.url)}`, '_blank');
+                        }
+                      }}
+                      className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white transition-colors"
+                      title="Partager"
+                    >
                        <Share2 className="w-4 h-4" />
                     </button>
                  </div>
