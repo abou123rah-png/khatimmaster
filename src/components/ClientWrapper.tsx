@@ -5,6 +5,7 @@ import { Moon, Menu, X, UserPlus, User, LogOut, Sparkles, Play, Mail, Fingerprin
 import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
 import SpiritualAudioPlayer from '@/components/SpiritualAudioPlayer';
+import PageTransitionEffect from '@/components/PageTransitionEffect';
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
 
@@ -169,6 +170,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         </aside>
         
         <div className="flex-1 flex flex-col xl:pl-20 overflow-hidden relative">
+          <PageTransitionEffect />
           {children}
           <SpiritualAudioPlayer />
         </div>
