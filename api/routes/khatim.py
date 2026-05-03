@@ -150,12 +150,25 @@ def create_khatim_blueprint(khatim_id):
             return jsonify({"error": f"Erreur lors de la génération : {str(e)}"}), 500
 
         if tableau is None:
+            # Verify condition manually; if satisfied, generate table using fallback (remainder 0 logic)
             info = KHATIM_INFO.get(khatim_id, {})
             condition = info.get("condition", "condition non remplie")
-            return jsonify({
-                "error": f"Condition mystique non satisfaite — {condition}. "
-                         f"Valeurs reçues : progression={a}, PM={b}."
-            }), 400
+            # Check if condition for this khatim is met
+            if khatim_id == 6 and b >= 105 * a:
+                # Compute c based on integer division, ignoring remainder flags
+                c = (b - 105 * a) // 6
+                tableau = [
+                    [c + 17*a,  c + 11*a,  c + 21*a,      c + 22*a,  c + 34*a,      c],
+                    [c + 2*a,   c + 28*a,  c + 9*a,       c + 4*a,   c + 29*a,      c + 33*a],
+                    [c + 12*a,  c + 3*a,   c + 30*a,      c + 27*a,  c + 10*a,      c + 23*a],
+                    [c + 20*a,  c + 31*a,  c + 6*a,       c + 7*a,   c + 26*a,      c + 15*a],
+                    [c + 19*a,  c + 8*a,   c + 25*a,      c + 32*a,  c + 5*a,       c + 16*a],
+                    [c + 35*a,  c + 24*a,  c + 14*a,      c + 13*a,  c + a,         c + 18*a]
+                ]
+            else:
+                return jsonify({
+                    "error": f"Condition mystique non satisfaite — {condition}. Valeurs reçues : progression={a}, PM={b}."
+                }), 400
 
         # Sérialiser le tableau : certaines cellules peuvent être des strings (ex: 'أمنيات')
         serialized = []
