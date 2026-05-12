@@ -725,13 +725,12 @@ def recettes_mystiques():
     if os.path.exists(articles_folder):
         for file in sorted(os.listdir(articles_folder), reverse=True):
             if file.lower().endswith('.md'):
-                slug = file.lower().replace('.md', '').replace('_', '-')
-                if re.match(r'^\d+-', slug):
-                    slug = re.sub(r'^\d+-', '', slug)
-
-                title = file.replace('.md', '').replace('_', ' ').title()
-                if re.match(r'^\d+\s', title):
-                    title = re.sub(r'^\d+\s', '', title)
+                # Utiliser la fonction de normalisation pour le slug
+                slug = standardize_slug(file)
+                
+                # Titre propre
+                title = file.replace('.md', '').replace('_', ' ').replace('-', ' ').title()
+                title = re.sub(r'^\d+\s*', '', title).strip()
 
                 articles.append({'title': title, 'slug': slug})
 
