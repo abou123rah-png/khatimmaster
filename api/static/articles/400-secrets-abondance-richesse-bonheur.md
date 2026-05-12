@@ -806,33 +806,19 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 
 393. **Miel pur et Jus d'Orange Sanguine** : Mélangez et buvez pour célébrer une victoire. C'est le sang du succès qui circule désormais dans vos veines, fier et puissant !
 
-394. **Pincée de Sel Gemme dans la poche** : Gardez un petit caillou de sel sur vous. C'est le monument de réussite intouchable : votre fortune devient aussi solide qu'une montagne !
+394. **Pincée de Sel Gemme dans la poche** : Gardez un petit caillou de sel pur dans votre poche droite. C'est le stabilisateur de destin : votre fortune devient aussi solide qu'une montagne, protégée contre les "mangeurs de baraka" et les envieux !
 
-395. **Eau de Source et Pétales de Rose** : Prenez un dernier bain de minuit avec ce mélange. C'est la renaissance : vous sortez de l'eau comme un homme nouveau, prêt pour l'abondance !
+395. **Eau de Source et Pétales de Rose** : Prenez un dernier bain de minuit avec ce mélange le dernier jour de votre traitement. C'est la renaissance mystique : vous sortez de l'eau comme un homme nouveau, purifié de la poisse et prêt à recevoir l'abondance infinie !
 
-396. **Gousses de Cardamome dans le café** : Partagez un café avec un sage ou un parent. C'est le transfert final de baraka, le respect des anciens qui ouvre les vannes du ciel !
+396. **Gousses de Cardamome dans le café** : Ajoutez trois gousses pilées dans votre café et partagez-le avec un sage, un parent ou une personne nécessiteuse. C'est le transfert final de baraka, le respect des anciens qui ouvre les vannes du ciel sur vos projets !
 
-397. **Huile de Ricin et Romarin sur les poignets** : Massez vos points de pulsation. C'est le pouls de l'éternité : votre succès ne s'arrêtera pas à vous, il vous survivra et nourrira vos enfants !
+397. **Huile de Ricin et Romarin sur les poignets** : Massez vos points de pulsation chaque matin. C'est le pouls de l'éternité : votre succès ne s'arrêtera pas à vous, il vous survivra, créant une lignée de richesse qui nourrira vos enfants et petits-enfants !
 
-398. **Zikr de "Ya Fattahou" (489 fois)** : Récitez face à l'océan ou à un champ libre. C'est l'ouverture totale : aucune limite ne peut plus retenir votre expansion financière désormais !
+398. **Zikr de "Ya Fattahou" (489 fois)** : Récitez face à l'horizon, devant l'océan ou un champ libre. C'est l'ouverture totale : aucune porte, aucun mur et aucune limite ne peut plus retenir votre expansion financière désormais !
 
-399. **Miel pur et Cannelle sur la langue** : Dites "Amin" trois fois après avoir goûté ce mélange. C'est l'exaucement final de tous les vœux formulés dans ce guide des 400 secrets !
+399. **Miel pur et Cannelle sur la langue** : Goûtez ce mélange et dites "Amin" trois fois avec une certitude absolue. C'est l'exaucement final : tous les vœux formulés à travers ces 400 secrets sont maintenant scellés dans votre destin !
 
-400. **Soyez la Richesse** : Le secret des maîtres. Ne cherchez plus l'argent à l'extérieur, mais comprenez qu'il est une extension de votre force. Quand vous rayonnez la richesse, elle accourt vers vous !oire. Le sang du succès coule en vous !
-
-394. **Pincée de Sel Gemme dans la poche** : Monument de réussite intouchable et inattaquable !
-
-395. **Eau de Source et Pétales de Rose** : Dernier bain de la série. Vous êtes un nouvel homme !
-
-396. **Gousses de Cardamome dans le café** : Partage avec un sage pour le transfert final de baraka !
-
-397. **Huile de Ricin et Romarin sur les poignets** : Pouls de l'éternité. Votre succès vous survivra !
-
-398. **Zikr de "Ya Fattahou" (489 fois)** : Devant l'horizon. Ouverture totale sans aucune limite !
-
-399. **Miel pur et Cannelle sur la langue** : Dites "Amin". Exaucement final de tous vos vœux !
-
-400. **Soyez la Richesse** : Le secret des secrets. Ne cherchez plus l'argent, devenez-le !
+400. **Soyez la Richesse** : Le secret ultime de Maître Cissé. Comprenez que l'argent n'est qu'une forme d'énergie. Ne le cherchez plus avec peur à l'extérieur, mais rayonnez-le de l'intérieur. Quand vous devenez la richesse, elle n'a d'autre choix que de vous suivre partout !
 ---
 ## 🏆 CONCLUSION : VOTRE NOUVELLE VIE COMMENCE ICI
 Vous avez entre les mains 400 clés. Ne cherchez pas à toutes les utiliser en un jour. Choisissez celles qui résonnent avec votre âme, pratiquez-les avec discipline et silence. La vraie richesse n'aime pas le bruit, elle aime la constance et la foi.Allez maintenant, et que la terre vous soit légère et generéuse.*D'après votre frère,***Mr. Cissé**
