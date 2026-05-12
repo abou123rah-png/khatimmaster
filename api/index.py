@@ -385,7 +385,7 @@ def api_article_detail(slug):
     # Recherche de l'article par slug standardisé
     target_file = None
     for file in os.listdir(ARTICLES_FOLDER):
-        if standardize_slug(file) == standardize_slug(slug):
+        if standardize_slug(file) == slug:
             target_file = file
             break
 
