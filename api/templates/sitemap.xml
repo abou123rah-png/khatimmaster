@@ -78,16 +78,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  {% for slug in articles_slugs %}
   <url>
-    <loc>https://khatimmaster.vercel.app/article/secrets-medecine-terroir-guerison</loc>
+    <loc>https://khatimmaster.vercel.app/article/{{ slug }}</loc>
     <lastmod>2026-05-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://khatimmaster.vercel.app/article/400-secrets-abondance-richesse-bonheur</loc>
-    <lastmod>2026-05-12T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  {% endfor %}
 </urlset>

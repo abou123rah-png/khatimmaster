@@ -1,4 +1,4 @@
-# Les 400 Secrets de la Médecine du Terroir : Prescription de Force et Guérison Totale
+# 🌿 Les 400 Secrets de la Médecine du Terroir : Guérison Totale et Vitalité Ancestrale
 
 > "Oubliez les longs discours des laboratoires. Voici la vraie médecine du terroir. Ce que je vais vous donner n'est pas une suggestion, c'est une prescription de survie, de force et de guérison totale."
 

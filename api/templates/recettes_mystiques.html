@@ -233,38 +233,43 @@
             </div>
         </div>
 
-        <!-- ✅ SECTION ARTICLES MODIFIÉE -->
-        <div class="glass-card mb-8 overflow-hidden">
-            <div class="bg-gradient-to-r from-teal-900 to-green-800 p-4">
-                <h2 class="text-xl font-bold text-white flex items-center">
-                    <i class="fas fa-newspaper mr-3"></i>
-                    Articles & Guides
-                </h2>
-            </div>
-            <div class="p-4 bg-white bg-opacity-5 text-white">
-                {% if articles %}
-                <div class="space-y-2">
-                    {% for article in articles %}
-                    <a href="{{ url_for('article_detail', slug=article.slug) }}" class="article-link block bg-white bg-opacity-5 rounded-lg p-4 flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div class="badge-number" style="background: linear-gradient(45deg, #11998e 0%, #38ef7d 100%);">{{ loop.index }}</div>
-                            <span class="font-semibold text-white">{{ article.title }}</span>
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-400"></i>
-                    </a>
-                    {% endfor %}
+        <!-- ✅ SECTION ARTICLES STRUCTURÉE EN SANCTUAIRES -->
+        {% if categories %}
+            {% for category in categories %}
+            <div class="glass-card mb-8 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-900 to-green-800 p-4 border-b border-white border-opacity-10">
+                    <h2 class="text-xl font-bold text-white flex items-center uppercase tracking-widest">
+                        <i class="fas fa-scroll mr-3 text-yellow-400"></i>
+                        {{ category.name }}
+                    </h2>
                 </div>
-                {% else %}
-                <div class="p-8 text-center text-gray-300">
-                    <i class="fas fa-folder-open fa-3x mb-4 text-green-400"></i>
-                    <p class="text-lg mb-2">Aucun article disponible pour le moment.</p>
-                    <p class="text-sm">
-                        Ajoutez des fichiers Markdown (.md) dans <code class="bg-gray-800 px-2 py-1 rounded">static/articles/</code>
-                    </p>
+                <div class="p-4 bg-white bg-opacity-5 text-white">
+                    {% if category.articles %}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {% for article in category.articles %}
+                        <a href="{{ url_for('article_detail', slug=article.slug) }}" class="article-link block bg-white bg-opacity-5 rounded-lg p-4 flex items-center justify-between border border-transparent hover:border-green-500 hover:bg-opacity-10">
+                            <div class="flex items-center space-x-4">
+                                <div class="badge-number" style="background: linear-gradient(45deg, #b8860b 0%, #ffd700 100%); color: #1a1a2e;">{{ article.index }}</div>
+                                <span class="font-semibold text-white group-hover:text-yellow-400">{{ article.title }}</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="p-4 text-center text-gray-400 italic">
+                        Ce sanctuaire sera bientôt enrichi de nouveaux secrets.
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
+            {% endfor %}
+        {% else %}
+        <div class="glass-card mb-8 p-8 text-center text-gray-300">
+            <i class="fas fa-folder-open fa-3x mb-4 text-green-400"></i>
+            <p class="text-lg mb-2">La bibliothèque est en cours de réorganisation.</p>
         </div>
+        {% endif %}
 
         <!-- Section PDF -->
         <div class="glass-card mb-8 overflow-hidden">

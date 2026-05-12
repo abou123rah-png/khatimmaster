@@ -1,4 +1,4 @@
-# Le Bouclier de l'Invincibilité : 313 Secrets de Protection Totale
+# 🛡️ Les 313 Secrets du Bouclier d'Invincibilité : Protection Totale et Défense Absolue
 
 > "Mieux vaut prévenir que guérir, mais mieux vaut être protégé que de devoir se défendre. Dans un monde où l'ombre cherche sans cesse à éteindre la lumière, le Karangué (la protection) n'est pas une option, c'est une nécessité vitale. Voici les 313 clés de fer pour verrouiller votre vie, votre famille et vos biens contre toute nuisance, visible ou invisible."
 

@@ -103,8 +103,15 @@ from flask import Response, render_template
 
 @app.route('/sitemap.xml')
 def sitemap():
+    articles_folder = os.path.join(app.static_folder, 'articles')
+    articles_slugs = []
+    if os.path.exists(articles_folder):
+        for file in os.listdir(articles_folder):
+            if file.lower().endswith('.md'):
+                articles_slugs.append(standardize_slug(file))
+    
     return Response(
-        render_template('sitemap.xml'),
+        render_template('sitemap.xml', articles_slugs=articles_slugs),
         mimetype='application/xml'
     )
 
@@ -709,11 +716,11 @@ def recettes_mystiques():
     page_title = "Ressources : Articles, PDF et Vidéos - KhatimMaster"
     # --- CORRECTION APPLIQUÉE ICI ---
     page_description = "Explorez notre bibliothèque de ressources : articles de fond, textes rares en PDF et vidéos explicatives sur la spiritualité et la science des lettres."
+    articles_folder = ARTICLES_FOLDER
 
     pdf_folder = os.path.join(app.static_folder, 'uploadPDF')
     video_folder = os.path.join(app.static_folder, 'uploadVIDEO')
-    articles_folder = os.path.join(app.static_folder, 'articles')
-
+    
     try:
         os.makedirs(pdf_folder, exist_ok=True)
         os.makedirs(video_folder, exist_ok=True)
@@ -721,18 +728,28 @@ def recettes_mystiques():
     except OSError:
         pass # Ignorer sur Vercel (read-only)
 
-    articles = []
+    categories = [
+        {"name": "Sanctuaire I : Protection & Vitalité", "articles": []},
+        {"name": "Sanctuaire II : Prospérité & Influence", "articles": []},
+        {"name": "Sanctuaire III : Éveil & Maîtrise", "articles": []}
+    ]
+    
     if os.path.exists(articles_folder):
-        for file in sorted(os.listdir(articles_folder), reverse=True):
-            if file.lower().endswith('.md'):
-                # Utiliser la fonction de normalisation pour le slug
-                slug = standardize_slug(file)
-                
-                # Titre propre
-                title = file.replace('.md', '').replace('_', ' ').replace('-', ' ').title()
-                title = re.sub(r'^\d+\s*', '', title).strip()
-
-                articles.append({'title': title, 'slug': slug})
+        all_md_files = sorted([f for f in os.listdir(articles_folder) if f.lower().endswith('.md')])
+        for i, file in enumerate(all_md_files):
+            slug = standardize_slug(file)
+            title = file.replace('.md', '').replace('_', ' ').replace('-', ' ').title()
+            title = re.sub(r'^\d+\s*', '', title).strip()
+            
+            article_data = {'title': title, 'slug': slug, 'index': i + 1}
+            
+            # Répartition dans les Sanctuaires
+            if i < 5:
+                categories[0]["articles"].append(article_data)
+            elif i < 10:
+                categories[1]["articles"].append(article_data)
+            else:
+                categories[2]["articles"].append(article_data)
 
     pdf_files = []
     if os.path.exists(pdf_folder):
@@ -752,7 +769,7 @@ def recettes_mystiques():
 
     return render_template(
         'recettes_mystiques.html',
-        articles=articles,
+        categories=categories,
         pdf_files=pdf_files,
         video_files=video_files,
         title=page_title,
