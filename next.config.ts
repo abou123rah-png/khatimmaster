@@ -1,24 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // En production sur Vercel, les routes /api/* sont gérées
-  // par la fonction Python api/index.py via vercel.json rewrites.
-  // En dev local, on proxifie vers Flask sur le port 5328.
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Autoriser le dev depuis l'IP locale
+  allowedDevOrigins: ["192.168.1.7"],
+
+  // Ignorer les erreurs de TypeScript pendant le build (utile en dev)
   typescript: {
     ignoreBuildErrors: true,
   },
+
+  // Rewrites vers le backend Flask en dev
   async rewrites() {
     return process.env.NODE_ENV === "development"
-        ? [
-            {
-              source: "/api/:path*",
-              destination: "http://localhost:5328/api/:path*",
-            },
-          ]
-        : [];
+      ? [
+          {
+            source: "/api/:path*",
+            destination: "http://localhost:5328/api/:path*",
+          },
+        ]
+      : [];
   },
 };
 

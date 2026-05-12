@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 
-import { LogIn, Mail, Lock, ArrowRight, Star, AlertCircle } from "lucide-react";
+import { LogIn, Mail, ArrowRight, Star, AlertCircle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "" });
+  const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -17,15 +18,17 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
+      const { data, error: authError } = await supabase.auth.signInWithOtp({
         email: formData.email,
-        password: formData.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
       });
 
       if (authError) throw authError;
 
-      // Redirect to home or dashboard
-      window.location.href = "/";
+      // Magic link sent — show confirmation, do NOT redirect yet
+      setSent(true);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -99,59 +102,65 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5 relative">
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-neutral-500 uppercase tracking-widest ml-1">Email</label>
-              <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-[var(--primary)] transition-colors" />
-                <input
-                  type="email"
-                  required
-                  className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all placeholder:text-neutral-600"
-                  placeholder="votre@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
+          {sent ? (
+            <div className="text-center space-y-4 py-4">
+              <div className="flex justify-center">
+                <CheckCircle2 className="w-16 h-16 text-[var(--primary)]" />
               </div>
+              <h2 className="text-xl font-bold text-white">Vérifiez votre boîte mail !</h2>
+              <p className="text-neutral-400">
+                Un lien magique a été envoyé à <span className="text-[var(--primary)] font-semibold">{formData.email}</span>.
+              </p>
+              <p className="text-neutral-500 text-sm">
+                Cliquez sur le lien dans l'email pour vous connecter automatiquement.
+              </p>
+              <button
+                onClick={() => setSent(false)}
+                className="text-neutral-400 text-sm underline hover:text-white transition-colors mt-2"
+              >
+                Utiliser une autre adresse
+              </button>
             </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-neutral-500 uppercase tracking-widest ml-1">Mot de passe</label>
-              <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-[var(--primary)] transition-colors" />
-                <input
-                  type="password"
-                  required
-                  className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all placeholder:text-neutral-600"
-                  placeholder="••••••••"
-                  value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                />
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5 relative">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-neutral-500 uppercase tracking-widest ml-1">Email</label>
+                <div className="relative group">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-[var(--primary)] transition-colors" />
+                  <input
+                    type="email"
+                    required
+                    className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all placeholder:text-neutral-600"
+                    placeholder="votre@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ email: e.target.value })}
+                  />
+                </div>
               </div>
-            </div>
 
-            {error && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400 text-sm animate-in shake duration-300">
-                <AlertCircle className="w-5 h-5 shrink-0" />
-                {error}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-[#D4AF37] to-[#FDE08B] text-[#0B0E14] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all disabled:opacity-50 flex items-center justify-center gap-2 group"
-            >
-              {loading ? (
-                <div className="w-6 h-6 border-2 border-[#0B0E14]/30 border-t-[#0B0E14] rounded-full animate-spin" />
-              ) : (
-                <>
-                  <span>Se connecter</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </>
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400 text-sm">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  {error}
+                </div>
               )}
-            </button>
-          </form>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#FDE08B] text-[#0B0E14] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all disabled:opacity-50 flex items-center justify-center gap-2 group"
+              >
+                {loading ? (
+                  <div className="w-6 h-6 border-2 border-[#0B0E14]/30 border-t-[#0B0E14] rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <span>Envoyer le lien magique</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </button>
+            </form>
+          )}
 
           <p className="text-center mt-8 text-neutral-500">
             Nouveau ici ?{" "}
