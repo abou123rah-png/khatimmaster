@@ -33,7 +33,7 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 
 13. **Fleurs d'hibiscus (bissap)** : Prenez un bain froid avec les pétales. C'est l'extincteur de jalousie, personne ne pourra brûler votre réussite !
 
-14. **Écorce de manguier** : Faites-en une décoction pour laver vos outils de travail. C'est le réveil de l'énergie qui rend votre travail productif !
+14. **Écorce de manguier** : Faites-en une décoction pour laver vos outils de travail. C'est le réveil de l'energy qui rend votre travail productif !
 
 15. **Huile de nigelle** : Appliquez une goutte sur votre front. C'est le troisième œil du profit qui vous guide vers les meilleures ventes !
 
@@ -159,7 +159,7 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 
 75. **Gousses d'ail dans votre jardin** : Plantez-en pour la protection. C'est le rempart contre l'envie qui veut freiner votre ascension !
 
-76. **Eau de pluie et sel gemme** : Lavez votre visage le matin. C'est la clarté du destin, vous voyez enfin le chemin vers votre premier milliard !
+76. **Eau de pluie and sel gemme** : Lavez votre visage le matin. C'est la clarté du destin, vous voyez enfin le chemin vers votre premier milliard !
 
 77. **Feuilles de menthe dans vos poches** : C'est le parfum de l'action, vous ne procrastinez plus sur vos idées de business !
 
@@ -327,7 +327,7 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 
 157. **Eau de Pluie et Sel de Mer** : Vaporisez votre voiture. C'est le bouclier contre les obstacles et les accidents !
 
-158. **Grains de Poivre Noir (7 grains)** : Dans votre poche gauche. C'est le répulsif contre les mauvaises langues !
+158. **Grains de Poivre Noir (7 grains)** : Dans votre pocket gauche. C'est le répulsif contre les mauvaises langues !
 
 159. **Huile de Karité et Soufre** : Massez vos articulations. C'est la force du guerrier face à l'adversité !
 
@@ -399,7 +399,7 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 
 193. **Huile de Coco et Lavande** : Massez votre cœur. La paix intérieure qui rend les attaques extérieures vaines !
 
-194. **Zikr de "Astaghfirullah" (1000 fois)** : Le nettoyage des dettes invisibles qui causaient la poisse !
+194. **Zikr de "Astaghfirullah" (1000 fois)** : Nettoyage des dettes invisibles qui causaient la poisse !
 
 195. **Écorce de Baobab et Miel** : Mâchez un morceau. La force inébranlable du Baobab entre en vous !
 
@@ -820,4 +820,4 @@ Appliquez ces ordres avec la foi d'un lion et la précision d'un maître. La ter
 400. **Soyez la Richesse** : Le secret des secrets. Ne cherchez plus l'argent, devenez-le !
 ---
 ## 🏆 CONCLUSION : VOTRE NOUVELLE VIE COMMENCE ICI
-Vous avez entre les mains 400 clés. Ne cherchez pas à toutes les utiliser en un jour. Choisissez celles qui résonnent avec votre âme, pratiquez-les avec discipline et silence. La vraie richesse n'aime pas le bruit, elle aime la constance et la foi.Allez maintenant, et que la terre vous soit légère et généreuse.*D'après votre frère,***Mr. Cissé**
+Vous avez entre les mains 400 clés. Ne cherchez pas à toutes les utiliser en un jour. Choisissez celles qui résonnent avec votre âme, pratiquez-les avec discipline et silence. La vraie richesse n'aime pas le bruit, elle aime la constance et la foi.Allez maintenant, et que la terre vous soit légère et generéuse.*D'après votre frère,***Mr. Cissé**
