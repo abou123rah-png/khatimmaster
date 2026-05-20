@@ -52,7 +52,7 @@ export default function RecettesMystiquesPage() {
 
   useEffect(() => {
     setError(null);
-    fetch('/api/resources')
+    fetch('/api/resources', { cache: 'no-store' })
       .then(res => {
         if (!res.ok) throw new Error(`Erreur serveur: ${res.status}`);
         return res.json();
